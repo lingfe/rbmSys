@@ -1,0 +1,7 @@
+G:\ProjectReleaseSys\ADL\bin\Debug\ADL.dll
+G:\ProjectReleaseSys\ADL\bin\Debug\ADL.pdb
+G:\ProjectReleaseSys\ADL\bin\Debug\Model.dll
+G:\ProjectReleaseSys\ADL\bin\Debug\Model.pdb
+G:\ProjectReleaseSys\ADL\obj\Debug\ADL.csprojResolveAssemblyReference.cache
+G:\ProjectReleaseSys\ADL\obj\Debug\ADL.dll
+G:\ProjectReleaseSys\ADL\obj\Debug\ADL.pdb

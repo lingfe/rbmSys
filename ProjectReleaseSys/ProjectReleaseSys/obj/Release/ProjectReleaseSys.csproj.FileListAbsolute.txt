@@ -1,0 +1,4 @@
+G:\ProjectReleaseSys\ProjectReleaseSys\obj\Release\ProjectReleaseSys.forMian.resources
+G:\ProjectReleaseSys\ProjectReleaseSys\obj\Release\ProjectReleaseSys.Properties.Resources.resources
+G:\ProjectReleaseSys\ProjectReleaseSys\obj\Release\ProjectReleaseSys.releaseinfoFrm.resources
+G:\ProjectReleaseSys\ProjectReleaseSys\obj\Release\ProjectReleaseSys.csproj.GenerateResource.Cache

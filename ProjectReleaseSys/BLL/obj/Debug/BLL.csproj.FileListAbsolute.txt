@@ -1,0 +1,9 @@
+G:\ProjectReleaseSys\BLL\bin\Debug\BLL.dll
+G:\ProjectReleaseSys\BLL\bin\Debug\BLL.pdb
+G:\ProjectReleaseSys\BLL\bin\Debug\ADL.dll
+G:\ProjectReleaseSys\BLL\bin\Debug\Model.dll
+G:\ProjectReleaseSys\BLL\bin\Debug\ADL.pdb
+G:\ProjectReleaseSys\BLL\bin\Debug\Model.pdb
+G:\ProjectReleaseSys\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+G:\ProjectReleaseSys\BLL\obj\Debug\BLL.dll
+G:\ProjectReleaseSys\BLL\obj\Debug\BLL.pdb

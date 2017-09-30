@@ -1,0 +1,5 @@
+G:\ProjectReleaseSys\Model\bin\Debug\Model.dll
+G:\ProjectReleaseSys\Model\bin\Debug\Model.pdb
+G:\ProjectReleaseSys\Model\obj\Debug\Model.dll
+G:\ProjectReleaseSys\Model\obj\Debug\Model.pdb
+G:\ProjectReleaseSys\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
