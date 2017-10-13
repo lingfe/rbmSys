@@ -41,11 +41,15 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.tool_releaseType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tool_df = new System.Windows.Forms.ToolStripComboBox();
+            this.tool_industryChoice = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.r_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.r_df = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.threshold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_industryChoice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,6 +59,7 @@
             this.r_teamIntroduction = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_phone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_imageArray = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.r_currentCity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_publisherIdentity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_geographicalPosition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_operatingArea = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,7 +75,6 @@
             this.r_projectAdvantage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_productCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_productHighlights = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.r_currentCity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_agentCondition = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_agencyRule = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -86,10 +90,17 @@
             this.其他ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Toexamine = new System.Windows.Forms.Button();
+            this.btn_adopt = new System.Windows.Forms.Button();
+            this.btn_Notpass = new System.Windows.Forms.Button();
+            this.btn_lower = new System.Windows.Forms.Button();
+            this.btn_upper = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -106,7 +117,7 @@
             this.建议ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1178, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1252, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,7 +168,7 @@
             this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 726);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1178, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1252, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -176,17 +187,23 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox1,
-            this.toolStripSeparator1});
+            this.tool_releaseType,
+            this.toolStripSeparator1,
+            this.tool_df,
+            this.tool_industryChoice,
+            this.toolStripTextBox1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1178, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 4);
+            this.toolStrip1.Size = new System.Drawing.Size(1252, 34);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripComboBox1
+            // tool_releaseType
             // 
-            this.toolStripComboBox1.Items.AddRange(new object[] {
+            this.tool_releaseType.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.tool_releaseType.Items.AddRange(new object[] {
+            "全部类型",
             "合伙创业",
             "干股纳才",
             "加盟代理",
@@ -195,15 +212,60 @@
             "金融理财",
             "房产投资",
             "其他"});
-            this.toolStripComboBox1.MergeIndex = 0;
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
-            this.toolStripComboBox1.Text = "全部类型";
+            this.tool_releaseType.MergeIndex = 0;
+            this.tool_releaseType.Name = "tool_releaseType";
+            this.tool_releaseType.Size = new System.Drawing.Size(121, 25);
+            this.tool_releaseType.Text = "全部类型";
+            this.tool_releaseType.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tool_df
+            // 
+            this.tool_df.Items.AddRange(new object[] {
+            "全部状态",
+            "审核中",
+            "未发布",
+            "未通过",
+            "显示中",
+            "已下架"});
+            this.tool_df.Name = "tool_df";
+            this.tool_df.Size = new System.Drawing.Size(121, 25);
+            this.tool_df.Text = "全部状态";
+            this.tool_df.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox2_SelectedIndexChanged);
+            // 
+            // tool_industryChoice
+            // 
+            this.tool_industryChoice.Items.AddRange(new object[] {
+            "全部行业",
+            "餐饮",
+            "休闲娱乐",
+            "旅游酒店",
+            "互联网",
+            "传媒",
+            "教育",
+            "装修",
+            "生活服务",
+            "百货",
+            "医疗保健",
+            "美容美发",
+            "汽车",
+            "地产",
+            "金融",
+            "其他"});
+            this.tool_industryChoice.Name = "tool_industryChoice";
+            this.tool_industryChoice.Size = new System.Drawing.Size(121, 25);
+            this.tool_industryChoice.Text = "全部行业";
+            this.tool_industryChoice.SelectedIndexChanged += new System.EventHandler(this.tool_industryChoice_SelectedIndexChanged);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBox1.Text = "关键字搜索";
             // 
             // listView1
             // 
@@ -212,6 +274,7 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.r_id,
             this.r_type,
+            this.r_df,
             this.r_title,
             this.threshold,
             this.r_industryChoice,
@@ -221,6 +284,7 @@
             this.r_teamIntroduction,
             this.r_phone,
             this.r_imageArray,
+            this.r_currentCity,
             this.r_publisherIdentity,
             this.r_geographicalPosition,
             this.r_operatingArea,
@@ -236,17 +300,16 @@
             this.r_projectAdvantage,
             this.r_productCategory,
             this.r_productHighlights,
-            this.r_currentCity,
             this.r_agentCondition,
             this.r_agencyRule});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.listView1.FullRowSelect = true;
             this.listView1.LabelWrap = false;
-            this.listView1.Location = new System.Drawing.Point(0, 50);
+            this.listView1.Location = new System.Drawing.Point(0, 59);
             this.listView1.Name = "listView1";
             this.listView1.ShowItemToolTips = true;
-            this.listView1.Size = new System.Drawing.Size(1178, 470);
+            this.listView1.Size = new System.Drawing.Size(1252, 470);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -259,6 +322,10 @@
             // r_type
             // 
             this.r_type.Text = "发布类型";
+            // 
+            // r_df
+            // 
+            this.r_df.Text = "状态";
             // 
             // r_title
             // 
@@ -303,6 +370,10 @@
             // 
             this.r_imageArray.Text = "图片路径";
             this.r_imageArray.Width = 100;
+            // 
+            // r_currentCity
+            // 
+            this.r_currentCity.Text = "当前城市";
             // 
             // r_publisherIdentity
             // 
@@ -366,10 +437,6 @@
             // 
             this.r_productHighlights.Text = "产品亮点";
             // 
-            // r_currentCity
-            // 
-            this.r_currentCity.Text = "当前城市";
-            // 
             // r_agentCondition
             // 
             this.r_agentCondition.Text = "代理条件";
@@ -384,14 +451,15 @@
             this.刷新ToolStripMenuItem,
             this.添加ToolStripMenuItem1,
             this.修改ToolStripMenuItem,
-            this.删除ToolStripMenuItem1});
+            this.删除ToolStripMenuItem1,
+            this.审核ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 114);
             // 
             // 刷新ToolStripMenuItem
             // 
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.刷新ToolStripMenuItem.Text = "刷新";
             this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
             // 
@@ -407,7 +475,7 @@
             this.房产投资ToolStripMenuItem,
             this.其他ToolStripMenuItem});
             this.添加ToolStripMenuItem1.Name = "添加ToolStripMenuItem1";
-            this.添加ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.添加ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
             this.添加ToolStripMenuItem1.Text = "添加";
             // 
             // 合伙创业ToolStripMenuItem
@@ -468,15 +536,23 @@
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.修改ToolStripMenuItem.Text = "修改";
+            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem1
             // 
             this.删除ToolStripMenuItem1.Name = "删除ToolStripMenuItem1";
-            this.删除ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.删除ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
             this.删除ToolStripMenuItem1.Text = "删除";
             this.删除ToolStripMenuItem1.Click += new System.EventHandler(this.删除ToolStripMenuItem1_Click);
+            // 
+            // 审核ToolStripMenuItem
+            // 
+            this.审核ToolStripMenuItem.Name = "审核ToolStripMenuItem";
+            this.审核ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.审核ToolStripMenuItem.Text = "审核";
+            this.审核ToolStripMenuItem.Click += new System.EventHandler(this.btn_Toexamine_Click);
             // 
             // dataGridView1
             // 
@@ -487,22 +563,15 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.dataGridView1.ContextMenuStrip = this.contextMenuStrip2;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 556);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 562);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1178, 170);
+            this.dataGridView1.Size = new System.Drawing.Size(1252, 164);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.VirtualMode = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 529);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 10;
             // 
             // contextMenuStrip2
             // 
@@ -518,11 +587,90 @@
             this.刷新ToolStripMenuItem1.Text = "刷新";
             this.刷新ToolStripMenuItem1.Click += new System.EventHandler(this.刷新ToolStripMenuItem1_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 535);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(500, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "搜索";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_Toexamine
+            // 
+            this.btn_Toexamine.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Toexamine.Location = new System.Drawing.Point(721, 27);
+            this.btn_Toexamine.Name = "btn_Toexamine";
+            this.btn_Toexamine.Size = new System.Drawing.Size(75, 26);
+            this.btn_Toexamine.TabIndex = 12;
+            this.btn_Toexamine.Text = "审核";
+            this.btn_Toexamine.UseVisualStyleBackColor = true;
+            this.btn_Toexamine.Click += new System.EventHandler(this.btn_Toexamine_Click);
+            // 
+            // btn_adopt
+            // 
+            this.btn_adopt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_adopt.Location = new System.Drawing.Point(859, 27);
+            this.btn_adopt.Name = "btn_adopt";
+            this.btn_adopt.Size = new System.Drawing.Size(75, 26);
+            this.btn_adopt.TabIndex = 12;
+            this.btn_adopt.Text = "直接通过";
+            this.btn_adopt.UseVisualStyleBackColor = true;
+            this.btn_adopt.Click += new System.EventHandler(this.btn_adopt_Click);
+            // 
+            // btn_Notpass
+            // 
+            this.btn_Notpass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Notpass.Location = new System.Drawing.Point(940, 27);
+            this.btn_Notpass.Name = "btn_Notpass";
+            this.btn_Notpass.Size = new System.Drawing.Size(75, 26);
+            this.btn_Notpass.TabIndex = 12;
+            this.btn_Notpass.Text = "不通过";
+            this.btn_Notpass.UseVisualStyleBackColor = true;
+            this.btn_Notpass.Click += new System.EventHandler(this.btn_Notpass_Click);
+            // 
+            // btn_lower
+            // 
+            this.btn_lower.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_lower.Location = new System.Drawing.Point(1080, 27);
+            this.btn_lower.Name = "btn_lower";
+            this.btn_lower.Size = new System.Drawing.Size(75, 26);
+            this.btn_lower.TabIndex = 12;
+            this.btn_lower.Text = "下架";
+            this.btn_lower.UseVisualStyleBackColor = true;
+            this.btn_lower.Click += new System.EventHandler(this.btn_lower_Click);
+            // 
+            // btn_upper
+            // 
+            this.btn_upper.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_upper.Location = new System.Drawing.Point(1161, 27);
+            this.btn_upper.Name = "btn_upper";
+            this.btn_upper.Size = new System.Drawing.Size(75, 26);
+            this.btn_upper.TabIndex = 12;
+            this.btn_upper.Text = "上架";
+            this.btn_upper.UseVisualStyleBackColor = true;
+            this.btn_upper.Click += new System.EventHandler(this.btn_upper_Click);
+            // 
             // forMian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 748);
+            this.ClientSize = new System.Drawing.Size(1252, 748);
+            this.Controls.Add(this.btn_upper);
+            this.Controls.Add(this.btn_lower);
+            this.Controls.Add(this.btn_Notpass);
+            this.Controls.Add(this.btn_adopt);
+            this.Controls.Add(this.btn_Toexamine);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listView1);
@@ -594,7 +742,7 @@
         private System.Windows.Forms.ColumnHeader r_currentCity;
         private System.Windows.Forms.ColumnHeader r_agentCondition;
         private System.Windows.Forms.ColumnHeader r_agencyRule;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox tool_releaseType;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -614,6 +762,17 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem1;
+        private System.Windows.Forms.ColumnHeader r_df;
+        private System.Windows.Forms.ToolStripComboBox tool_df;
+        private System.Windows.Forms.ToolStripComboBox tool_industryChoice;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Toexamine;
+        private System.Windows.Forms.ToolStripMenuItem 审核ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.Button btn_adopt;
+        private System.Windows.Forms.Button btn_Notpass;
+        private System.Windows.Forms.Button btn_lower;
+        private System.Windows.Forms.Button btn_upper;
     }
 }
 

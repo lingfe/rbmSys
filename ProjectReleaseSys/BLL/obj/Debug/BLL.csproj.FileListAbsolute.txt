@@ -7,3 +7,12 @@ G:\ProjectReleaseSys\BLL\bin\Debug\Model.pdb
 G:\ProjectReleaseSys\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 G:\ProjectReleaseSys\BLL\obj\Debug\BLL.dll
 G:\ProjectReleaseSys\BLL\obj\Debug\BLL.pdb
+G:\rbmSys\ProjectReleaseSys\BLL\bin\Debug\BLL.dll
+G:\rbmSys\ProjectReleaseSys\BLL\bin\Debug\BLL.pdb
+G:\rbmSys\ProjectReleaseSys\BLL\bin\Debug\ADL.dll
+G:\rbmSys\ProjectReleaseSys\BLL\bin\Debug\Model.dll
+G:\rbmSys\ProjectReleaseSys\BLL\bin\Debug\ADL.pdb
+G:\rbmSys\ProjectReleaseSys\BLL\bin\Debug\Model.pdb
+G:\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+G:\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.dll
+G:\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.pdb

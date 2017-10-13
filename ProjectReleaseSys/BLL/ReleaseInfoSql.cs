@@ -16,13 +16,39 @@ namespace BLL
         DBHeple db = new DBHeple();
 
         /// <summary>
-        /// 得到所有发布信息
+        /// 得到所有今天的发布信息
         /// </summary>
         /// <returns></returns>
         public List<ReleaseInfo> getList()
         {
 
             return db.getEmployeeLevel(string.Format("select * from releaseinfo WHERE DATEDIFF(cdate,NOW())=0 ORDER BY id DESC"));
+        }
+
+        /// <summary>
+        /// 关闭链接
+        /// </summary>
+        public void close() {
+            db.close();
+        }
+
+        /// <summary>
+        /// 修改发布信息的状态
+        /// </summary>
+        /// <param name="df">状态</param>
+        /// <param name="id">编号</param>
+        /// <returns></returns>
+        public int setWhereDF(int df,string id) {
+            return db.GetExecuteNonQuery(string.Format("UPDATE releaseinfo set df={0}  WHERE id='{1}'",df,id));
+        }
+
+        /// <summary>
+        /// 根据条件获取数据
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public List<ReleaseInfo> getWhereList(string where) {
+            return db.getEmployeeLevel(string.Format("select * from releaseinfo "+where));
         }
 
         /// <summary>

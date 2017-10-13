@@ -16,7 +16,7 @@ namespace ProjectReleaseSys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new upload());
+            Application.Run(new loginFrm());
         }
     }
 }

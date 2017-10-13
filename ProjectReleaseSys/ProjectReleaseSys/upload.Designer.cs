@@ -38,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,12 +64,15 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "上传";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txt_imageArray
             // 
             this.txt_imageArray.Location = new System.Drawing.Point(229, 141);
             this.txt_imageArray.Multiline = true;
             this.txt_imageArray.Name = "txt_imageArray";
+            this.txt_imageArray.ReadOnly = true;
+            this.txt_imageArray.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txt_imageArray.Size = new System.Drawing.Size(106, 245);
             this.txt_imageArray.TabIndex = 3;
             // 
@@ -126,6 +130,7 @@
             this.Controls.Add(this.button1);
             this.Name = "upload";
             this.Text = "upload";
+            this.Load += new System.EventHandler(this.upload_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,5 +148,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }

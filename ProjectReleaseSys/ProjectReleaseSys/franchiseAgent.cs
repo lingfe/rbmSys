@@ -38,7 +38,18 @@ namespace ProjectReleaseSys
         private void btn_clear_Click(object sender, EventArgs e)
         {
             txt_title.Text = "";
+            txt_fundDistribution.Text = "";
+            txt_headquartersLocation.Text = "";
+            txt_imageArray.Text = "";
+            txt_incomeDescription.Text = "";
+            txt_phone.Text = "";
+            txt_projectDescription.Text = "";
+            txt_teamIntroduction.Text = "";
+            txt_threshold.Text = "";
 
+            lbl_ImgNuber.Text = "总数量:0";
+            lab_diji.Text = "第0张";
+            imageList1.Images.Clear();
         }
 
         /// <summary>
@@ -60,8 +71,8 @@ namespace ProjectReleaseSys
             fo.Id = id;
             fo.PersonalId = PublicField.adminId;
             fo.ReleaseType = "加盟代理";
-            fo.CurrentCity = "贵阳";          //默认贵阳
-            fo.Df = 4;                        //默认审核中
+            fo.CurrentCity = PublicField.address;          //默认贵阳
+            fo.Df = 0;                                     //默认正常显示
             fo.Cdate = DateTime.Now;
             fo.Mdate = fo.Cdate;
             fo.Creator = fo.PersonalId;
@@ -74,7 +85,7 @@ namespace ProjectReleaseSys
                 MessageBox.Show("发布成功！");
                 this.btn_clear_Click(sender, e);
                 //刷新主窗体数据
-                if (this.mian != null) this.mian.getList();
+                if (this.mian != null) this.mian.getList(null);
             }
             else {
                 MessageBox.Show("发布失败,发生异常！！！");
@@ -134,7 +145,111 @@ namespace ProjectReleaseSys
                 MessageBox.Show("图片路径不能为空!");
                 return false;
             }
+            fo.ImageArray = txt_imageArray.Text.Substring(0, txt_imageArray.Text.Length - 1);
             return true;
+        }
+
+        /// <summary>
+        /// 窗体加载
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void franchiseAgent_Load(object sender, EventArgs e)
+        {
+            cob_City.SelectedText = PublicField.address;
+            cob_industryChoice.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// 定义文件上传工具对象
+        /// </summary>
+        UpdateUtile uUtile = new UpdateUtile();
+
+        /// <summary>
+        /// 选择图片
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int tt = (txt_imageArray.Text.Split(',').Length - 1);
+            if (tt >= 6)
+            {
+                MessageBox.Show("已经上传了六张图片啦!不能再多啦!");
+                return;
+            }
+            //得到文件筐
+            OpenFileDialog di = this.openFileDialog1;
+            //设置文件类型
+            di.Filter = "Files|*.jpg;*.png;*.ico;*.gif";
+            //设置是否多选
+            di.Multiselect = true;
+            //设置为当前项目路径
+            di.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            //判断操作
+            if (di.ShowDialog() == DialogResult.OK)
+            {
+                tt += di.FileNames.Length;
+                if (tt > 6)
+                {
+                    MessageBox.Show("总共只能上传六张图片哦!");
+                    return;
+                }
+                //遍历获取的图片
+                for (int i = 0; i < di.FileNames.Length; ++i)
+                {
+                    //设置保存图片加路径
+                    string fileName = di.FileNames[i];
+                    string str = uUtile.setUploadFile(fileName);
+                    if (str != null)
+                    {
+                        imageList1.Images.Add(Image.FromFile(di.FileNames[i]));
+                        txt_imageArray.Text += str + ",";
+                    }
+                }
+            }
+            //设置获取图片数量
+            lbl_ImgNuber.Text = "总共：" + (imageList1.Images.Count) + "张";
+
+        }
+
+
+        int tt = 0;
+        /// <summary>
+        /// 计时器
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.imageList1.Images.Count > tt)
+            {
+                //显示图片
+                lab_diji.Text = "第" + (tt + 1) + "张";
+                pictureBox1.Image = imageList1.Images[tt];
+                tt++;
+            }
+            else tt = 0;
+        }
+
+        /// <summary>
+        /// 关闭当前
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_no_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// 切换城市
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cob_City_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PublicField.address = cob_City.Text;
         }
     }
 }

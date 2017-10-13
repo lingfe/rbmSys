@@ -35,43 +35,59 @@ namespace ProjectReleaseSys
             //管理员信息
             toolStripStatusLabel1.Text = "管理员:" + PublicField.adminName;
             toolStripStatusLabel2.Text = "管理员id：" + PublicField.adminId;
-           
             //加载数据
-            this.getList();
+            this.getList(null);
             this.getTable();
         }
 
         /// <summary>
         /// list数据
         /// </summary>
-        public void getList() {
+        public void getList(List<ReleaseInfo> info) {
             //list数据
             listView1.Items.Clear();
-            List<ReleaseInfo> info = sql.getList();
+            if (info == null) {
+                info = sql.getList();
+            }
+            string r_df = "";
             foreach (ReleaseInfo fo in info)
             {
-                ListViewItem lv = new ListViewItem(fo.Id);
+                ListViewItem lv = new ListViewItem(fo.Id);          //0.编号
+                lv.SubItems.Add(fo.ReleaseType);                    //1.发布类型
+                
+                if (fo.Df == 0) r_df = "显示中";
+                else if (fo.Df == 1) r_df = "已下架";
+                else if (fo.Df == 2) r_df = "未发布";
+                else if (fo.Df == 4) r_df = "审核中";
+                else if (fo.Df == 5) r_df = "未通过";
+                lv.SubItems.Add(r_df);                              //2.状态
+                
+                lv.SubItems.Add(fo.Title);                          //3.标题
+                lv.SubItems.Add(fo.Threshold.ToString() + "万");    //4.金额
+                lv.SubItems.Add(fo.IndustryChoice);                 //5.行业
+                lv.SubItems.Add(fo.FundDistribution);               //6.资金规划
+                lv.SubItems.Add(fo.ProjectDescription);             //7.项目描述
+                lv.SubItems.Add(fo.IncomeDescription);              //8.收益描述
+                lv.SubItems.Add(fo.TeamIntroduction);               //9.团队介绍
+                lv.SubItems.Add(fo.Phone);                          //10.电话号码
+                lv.SubItems.Add(fo.ImageArray);                     //11.图片路径
+                lv.SubItems.Add(fo.CurrentCity);                    //12.当前城市
+                lv.SubItems.Add(fo.PublisherIdentity);              //13.发布人身份
+                lv.SubItems.Add(fo.GeographicalPosition);           //14.地理位置
+                lv.SubItems.Add(fo.OperatingArea+"平方");           //15.经营面积
+                lv.SubItems.Add(fo.MonthlyRent+"元/月");            //16.每月租金
+                lv.SubItems.Add(fo.BusinessDescription);            //17.营业描述
+                lv.SubItems.Add(fo.TransferReason);                 //18.转让原因
+                lv.SubItems.Add(fo.ThrowInTheCity);                 //19.投放城市
+                lv.SubItems.Add(fo.HeadquartersLocation);           //20.总部位置
+                lv.SubItems.Add(fo.ResourceRequirements);           //21.能力要求
+                lv.SubItems.Add(fo.ShareDivision);                  //22.出售股份，股份划分
+                lv.SubItems.Add("");                  //23.
+                lv.SubItems.Add("");                  //24.
+                lv.SubItems.Add("");                  //25.
+                lv.SubItems.Add("");                  //26.
+                lv.SubItems.Add("");                    //27
 
-                lv.SubItems.Add(fo.ReleaseType);
-                lv.SubItems.Add(fo.Title);
-                lv.SubItems.Add(fo.Threshold.ToString() + "万");
-                lv.SubItems.Add(fo.IndustryChoice);
-                lv.SubItems.Add(fo.FundDistribution);
-                lv.SubItems.Add(fo.ProjectDescription);
-                lv.SubItems.Add(fo.IncomeDescription);
-                lv.SubItems.Add(fo.TeamIntroduction);
-                lv.SubItems.Add(fo.Phone);
-                lv.SubItems.Add(fo.ImageArray);
-                lv.SubItems.Add(fo.PublisherIdentity);
-                lv.SubItems.Add(fo.GeographicalPosition);
-                lv.SubItems.Add(fo.OperatingArea);
-                lv.SubItems.Add(fo.MonthlyRent);
-                lv.SubItems.Add(fo.BusinessDescription);
-                lv.SubItems.Add(fo.TransferReason);
-                lv.SubItems.Add(fo.ThrowInTheCity);
-                lv.SubItems.Add(fo.HeadquartersLocation);
-                lv.SubItems.Add(fo.ResourceRequirements);
-                lv.SubItems.Add(fo.ShareDivision);
 
                 listView1.Items.Add(lv);
             }
@@ -162,7 +178,7 @@ namespace ProjectReleaseSys
         private void 刷新ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //加载数据
-            this.getList();
+            this.getList(null);
         }
 
         /// <summary>
@@ -212,7 +228,7 @@ namespace ProjectReleaseSys
                 if (tt != -1)
                 {
                     MessageBox.Show("删除成功！");
-                    this.getList();
+                    this.getList(null);
                 }
                 else
                 {
@@ -223,6 +239,320 @@ namespace ProjectReleaseSys
                 MessageBox.Show("请选中要删除的数据！");
             }
 
+        }
+
+        /// <summary>
+        /// 发布类型筛选
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string releaseType = tool_releaseType.Text;
+            if (releaseType != "全部类型")
+            {
+                List<ReleaseInfo> info = sql.getWhereList("where releaseType='" + releaseType + "'");
+                this.getList(info);
+            }
+            else {
+                this.getList(null);
+            }
+            
+        }
+
+        /// <summary>
+        /// 根据状态筛选
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string df = tool_df.Text;
+            if (df != "全部状态")
+            {
+                int r_df = 0;
+                if (df == "显示中") r_df = 0;
+                else if (df == "已下架") r_df =1;
+                else if (df == "未发布") r_df = 2;
+                else if (df == "审核中") r_df = 4;
+                else if (df == "未通过") r_df = 5;
+
+                List<ReleaseInfo> info = sql.getWhereList("where df=" + r_df + "");
+                this.getList(info);
+            }
+            else {
+                this.getList(null);
+            }
+        }
+
+        /// <summary>
+        /// 根据行业筛选
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tool_industryChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string industryChoice = tool_industryChoice.Text;
+            if (industryChoice != "全部行业")
+            {
+                List<ReleaseInfo> info = sql.getWhereList("where industryChoice='" + industryChoice + "'");
+                this.getList(info);
+            }
+            else
+            {
+                this.getList(null);
+            }
+        }
+
+        /// <summary>
+        /// 筛选
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("该功能暂未开通!");
+        }
+
+        /// <summary>
+        /// 审核
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Toexamine_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                string releaseType = listView1.SelectedItems[0].SubItems[1].Text;
+
+                //判断状态
+                if (listView1.SelectedItems[0].SubItems[2].Text!="审核中"){
+                    MessageBox.Show("该状态不属于审核范围!");
+                    return;
+                }
+
+                //判断发布类型
+                if (releaseType == "合伙创业") {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    
+                }
+                else if (releaseType == "干股纳才")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "加盟代理")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "股权交易")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "生意转让")
+                {
+                    businessTransfer frm = new businessTransfer(id,this);
+                    frm.ShowDialog();
+                }
+                else if (releaseType == "金融理财")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "房产投资")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "其他")
+                {
+                    otherFrm frm = new otherFrm(id, this);
+                    frm.ShowDialog();
+                }
+            }
+            else {
+                MessageBox.Show("请选择你要审核的数据");
+            }
+
+        }
+
+        /// <summary>
+        /// 通过
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_adopt_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+
+                //判断状态
+                if (listView1.SelectedItems[0].SubItems[2].Text!="审核中"){
+                    MessageBox.Show("该状态不属于审核范围!");
+                    return;
+                }
+
+                //执行修改状态
+                sql.setWhereDF(0, id);
+                List<ReleaseInfo> info = sql.getWhereList("where id='" + id + "'");
+                this.getList(info);
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 不通过
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Notpass_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+
+                //判断状态
+                if (listView1.SelectedItems[0].SubItems[2].Text != "审核中")
+                {
+                    MessageBox.Show("该状态不属于审核范围!");
+                    return;
+                }
+
+                //执行修改状态
+                sql.setWhereDF(5, id);
+                List<ReleaseInfo> info = sql.getWhereList("where id='" + id + "'");
+                this.getList(info);
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 下架
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_lower_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                //判断状态
+                if (listView1.SelectedItems[0].SubItems[2].Text != "显示中")
+                {
+                    MessageBox.Show("该状态不允许下架!");
+                    return;
+                }
+                //执行修改状态
+                sql.setWhereDF(1, id);
+                List<ReleaseInfo> info = sql.getWhereList("where id='" + id + "'");
+                this.getList(info);
+                MessageBox.Show("已下架！");
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 下架
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_upper_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                //判断状态
+                if (listView1.SelectedItems[0].SubItems[2].Text != "已下架")
+                {
+                    MessageBox.Show("该状态不允许上架!");
+                    return;
+                }
+                //执行修改状态
+                sql.setWhereDF(0, id);
+                List<ReleaseInfo> info = sql.getWhereList("where id='" + id + "'");
+                this.getList(info);
+                MessageBox.Show("已上架！");
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 修改
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                string releaseType = listView1.SelectedItems[0].SubItems[1].Text;
+                //判断状态
+                if (listView1.SelectedItems[0].SubItems[2].Text == "显示中")
+                {
+                    MessageBox.Show("该状态不允许修改!");
+                    return;
+                }
+
+                //判断发布类型
+                if (releaseType == "合伙创业")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+
+                }
+                else if (releaseType == "干股纳才")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "加盟代理")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "股权交易")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "生意转让")
+                {
+                    //执行修改操作
+                    businessTransfer frm = new businessTransfer("update", id, this);
+                    frm.ShowDialog();
+                }
+                else if (releaseType == "金融理财")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "房产投资")
+                {
+                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                }
+                else if (releaseType == "其他")
+                {
+                    otherFrm frm = new otherFrm("update",id, this);
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
         }
 
     }

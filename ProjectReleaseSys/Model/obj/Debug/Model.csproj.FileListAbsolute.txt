@@ -3,3 +3,7 @@ G:\ProjectReleaseSys\Model\bin\Debug\Model.pdb
 G:\ProjectReleaseSys\Model\obj\Debug\Model.dll
 G:\ProjectReleaseSys\Model\obj\Debug\Model.pdb
 G:\ProjectReleaseSys\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+G:\rbmSys\ProjectReleaseSys\Model\bin\Debug\Model.dll
+G:\rbmSys\ProjectReleaseSys\Model\bin\Debug\Model.pdb
+G:\rbmSys\ProjectReleaseSys\Model\obj\Debug\Model.dll
+G:\rbmSys\ProjectReleaseSys\Model\obj\Debug\Model.pdb

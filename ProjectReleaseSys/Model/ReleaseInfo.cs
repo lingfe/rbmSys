@@ -200,7 +200,7 @@ namespace Model
         }
         private string shareDivision;// VARCHAR(255) DEFAULT NULL COMMENT '股份划分',
         /// <summary>
-        /// 出售股份
+        /// 出售股份，股份划分
         /// </summary>
         public string ShareDivision
         {

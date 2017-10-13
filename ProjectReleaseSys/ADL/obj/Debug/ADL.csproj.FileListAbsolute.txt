@@ -5,3 +5,10 @@ G:\ProjectReleaseSys\ADL\bin\Debug\Model.pdb
 G:\ProjectReleaseSys\ADL\obj\Debug\ADL.csprojResolveAssemblyReference.cache
 G:\ProjectReleaseSys\ADL\obj\Debug\ADL.dll
 G:\ProjectReleaseSys\ADL\obj\Debug\ADL.pdb
+G:\rbmSys\ProjectReleaseSys\ADL\bin\Debug\ADL.dll
+G:\rbmSys\ProjectReleaseSys\ADL\bin\Debug\ADL.pdb
+G:\rbmSys\ProjectReleaseSys\ADL\bin\Debug\Model.dll
+G:\rbmSys\ProjectReleaseSys\ADL\bin\Debug\Model.pdb
+G:\rbmSys\ProjectReleaseSys\ADL\obj\Debug\ADL.csprojResolveAssemblyReference.cache
+G:\rbmSys\ProjectReleaseSys\ADL\obj\Debug\ADL.dll
+G:\rbmSys\ProjectReleaseSys\ADL\obj\Debug\ADL.pdb

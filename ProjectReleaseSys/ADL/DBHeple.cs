@@ -135,50 +135,58 @@ namespace ADL
             try
             {
                 //con.Open();
-                cmd = new MySqlCommand(sql, con);
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
                 {
-                    ReleaseInfo fo = new ReleaseInfo();
-                    fo.Id = dr["id"].ToString();
-                    fo.Title = dr["title"].ToString();
-                    fo.Threshold = Convert.ToDouble(dr["threshold"].ToString());
-                    fo.ThrowInTheCity = dr["throwInTheCity"].ToString();
-                    fo.TeamIntroduction = dr["teamIntroduction"].ToString();
-                    fo.ShareDivision = dr["shareDivision"].ToString();
-                    fo.ResourceRequirements = dr["resourceRequirements"].ToString();
-                    fo.ReleaseType = dr["releaseType"].ToString();
-                    fo.PublisherIdentity = dr["publisherIdentity"].ToString();
-                    fo.ProjectDescription = dr["projectDescription"].ToString();
-                    fo.ProjectAdvantage = dr["projectAdvantage"].ToString();
-                    fo.ProductType = dr["productType"].ToString();
-                    fo.ProductHighlights = dr["productHighlights"].ToString();
-                    fo.ProductCategory = dr["productCategory"].ToString();
-                    fo.Phone = dr["phone"].ToString();
-                    fo.PersonalId = dr["personalId"].ToString();
-                    fo.AgencyRule = dr["agencyRule"].ToString();
 
-                    fo.AgentCondition = dr["AgentCondition"].ToString();
-                    fo.BusinessDescription = dr["BusinessDescription"].ToString();
-                    fo.Cdate = Convert.ToDateTime(dr["cdate"].ToString());
-                    fo.Creator = dr["creator"].ToString();
-                    fo.CurrentCity = dr["currentCity"].ToString();
-                    fo.Df = Convert.ToInt32(dr["df"].ToString());
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            ReleaseInfo fo = new ReleaseInfo();
+                            fo.Id = dr["id"].ToString();
+                            fo.Title = dr["title"].ToString();
+                            fo.Threshold = Convert.ToDouble(dr["threshold"].ToString());
+                            fo.ThrowInTheCity = dr["throwInTheCity"].ToString();
+                            fo.TeamIntroduction = dr["teamIntroduction"].ToString();
+                            fo.ShareDivision = dr["shareDivision"].ToString();
+                            fo.ResourceRequirements = dr["resourceRequirements"].ToString();
+                            fo.ReleaseType = dr["releaseType"].ToString();
+                            fo.PublisherIdentity = dr["publisherIdentity"].ToString();
+                            fo.ProjectDescription = dr["projectDescription"].ToString();
+                            fo.ProjectAdvantage = dr["projectAdvantage"].ToString();
+                            fo.ProductType = dr["productType"].ToString();
+                            fo.ProductHighlights = dr["productHighlights"].ToString();
+                            fo.ProductCategory = dr["productCategory"].ToString();
+                            fo.Phone = dr["phone"].ToString();
+                            fo.PersonalId = dr["personalId"].ToString();
+                            fo.AgencyRule = dr["agencyRule"].ToString();
 
-                    fo.FundDistribution = dr["FundDistribution"].ToString();
-                    fo.GeographicalPosition = dr["GeographicalPosition"].ToString();
-                    fo.HeadquartersLocation = dr["GeographicalPosition"].ToString();
-                    fo.HouseType = dr["HouseType"].ToString();
-                    fo.IncomeDescription = dr["IncomeDescription"].ToString();
-                    fo.IndustryChoice = dr["IndustryChoice"].ToString();
-                    fo.Mdate = Convert.ToDateTime(dr["mdate"].ToString());
-                    fo.MonthlyRent = dr["MonthlyRent"].ToString();
-                    fo.OperatingArea = dr["MonthlyRent"].ToString();
-                    fo.TransferReason = dr["TransferReason"].ToString();
+                            fo.AgentCondition = dr["AgentCondition"].ToString();
+                            fo.BusinessDescription = dr["BusinessDescription"].ToString();
+                            fo.Cdate = Convert.ToDateTime(dr["cdate"].ToString());
+                            fo.Creator = dr["creator"].ToString();
+                            fo.CurrentCity = dr["currentCity"].ToString();
+                            fo.Df = Convert.ToInt32(dr["df"].ToString());
 
-                    st.Add(fo);
+                            fo.FundDistribution = dr["FundDistribution"].ToString();
+                            fo.GeographicalPosition = dr["GeographicalPosition"].ToString();
+                            fo.HeadquartersLocation = dr["GeographicalPosition"].ToString();
+                            fo.HouseType = dr["HouseType"].ToString();
+                            fo.IncomeDescription = dr["IncomeDescription"].ToString();
+                            fo.IndustryChoice = dr["IndustryChoice"].ToString();
+                            fo.Mdate = Convert.ToDateTime(dr["mdate"].ToString());
+                            fo.MonthlyRent = dr["MonthlyRent"].ToString();
+                            fo.OperatingArea = dr["MonthlyRent"].ToString();
+                            fo.TransferReason = dr["TransferReason"].ToString();
+                            fo.ImageArray = dr["ImageArray"].ToString();
+
+                            st.Add(fo);
+                        }
+                        dr.Close();
+                        cmd.Clone();
+                    
+                    }
                 }
-                dr.Close();
             }
             catch (Exception ex)
             {

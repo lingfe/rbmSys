@@ -63,6 +63,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cob_City = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -99,29 +100,28 @@
             // 
             // cob_industryChoice
             // 
+            this.cob_industryChoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cob_industryChoice.FormattingEnabled = true;
             this.cob_industryChoice.Items.AddRange(new object[] {
             "餐饮",
             "休闲娱乐",
-            "旅游与酒店",
-            "美发美容",
+            "旅游酒店",
+            "互联网",
+            "传媒",
             "教育",
-            "服饰鞋包",
+            "装修",
             "生活服务",
+            "百货",
+            "医疗保健",
+            "美容美发",
             "汽车",
             "地产",
             "金融",
-            "家装建材",
-            "百货超市",
-            "医疗保健",
-            "建筑工程",
-            "工厂",
             "其他"});
             this.cob_industryChoice.Location = new System.Drawing.Point(144, 157);
             this.cob_industryChoice.Name = "cob_industryChoice";
             this.cob_industryChoice.Size = new System.Drawing.Size(348, 20);
             this.cob_industryChoice.TabIndex = 48;
-            this.cob_industryChoice.Text = "其他";
             // 
             // txt_phone
             // 
@@ -345,6 +345,7 @@
             this.txt_imageArray.Location = new System.Drawing.Point(144, 452);
             this.txt_imageArray.Multiline = true;
             this.txt_imageArray.Name = "txt_imageArray";
+            this.txt_imageArray.ReadOnly = true;
             this.txt_imageArray.Size = new System.Drawing.Size(152, 206);
             this.txt_imageArray.TabIndex = 54;
             // 
@@ -361,12 +362,37 @@
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.ImageSize = new System.Drawing.Size(200, 200);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // cob_City
+            // 
+            this.cob_City.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cob_City.FormattingEnabled = true;
+            this.cob_City.Items.AddRange(new object[] {
+            "成都",
+            "重庆",
+            "贵阳",
+            "昆明",
+            "南宁",
+            "广州",
+            "深圳",
+            "遵义"});
+            this.cob_City.Location = new System.Drawing.Point(469, 12);
+            this.cob_City.Name = "cob_City";
+            this.cob_City.Size = new System.Drawing.Size(55, 20);
+            this.cob_City.TabIndex = 48;
+            this.cob_City.SelectedIndexChanged += new System.EventHandler(this.cob_City_SelectedIndexChanged);
             // 
             // businessTransfer
             // 
@@ -382,6 +408,7 @@
             this.Controls.Add(this.btn_no);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.btn_clear);
+            this.Controls.Add(this.cob_City);
             this.Controls.Add(this.cob_industryChoice);
             this.Controls.Add(this.txt_phone);
             this.Controls.Add(this.lab_imageArray);
@@ -409,6 +436,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "生意转让";
+            this.Load += new System.EventHandler(this.businessTransfer_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -450,9 +478,10 @@
         private System.Windows.Forms.Label lab_diji;
         private System.Windows.Forms.TextBox txt_imageArray;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        public System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ComboBox cob_City;
 
     }
 }
