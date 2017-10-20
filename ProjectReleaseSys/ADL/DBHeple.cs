@@ -145,7 +145,10 @@ namespace ADL
                             ReleaseInfo fo = new ReleaseInfo();
                             fo.Id = dr["id"].ToString();
                             fo.Title = dr["title"].ToString();
-                            fo.Threshold = Convert.ToDouble(dr["threshold"].ToString());
+                            if (dr["threshold"].ToString() != null)
+                            {
+                                fo.Threshold = Convert.ToDouble(dr["threshold"].ToString());
+                            }
                             fo.ThrowInTheCity = dr["throwInTheCity"].ToString();
                             fo.TeamIntroduction = dr["teamIntroduction"].ToString();
                             fo.ShareDivision = dr["shareDivision"].ToString();
@@ -163,6 +166,7 @@ namespace ADL
 
                             fo.AgentCondition = dr["AgentCondition"].ToString();
                             fo.BusinessDescription = dr["BusinessDescription"].ToString();
+                            
                             fo.Cdate = Convert.ToDateTime(dr["cdate"].ToString());
                             fo.Creator = dr["creator"].ToString();
                             fo.CurrentCity = dr["currentCity"].ToString();
