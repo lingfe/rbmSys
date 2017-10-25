@@ -22,7 +22,16 @@ namespace BLL
         public List<ReleaseInfo> getList()
         {
 
-            return db.getEmployeeLevel(string.Format("select * from releaseinfo WHERE DATEDIFF(cdate,NOW())=0 ORDER BY id DESC"));
+            return db.getEmployeeLevel(string.Format("select * from releaseinfo WHERE DATEDIFF(mdate,NOW())=0 ORDER BY id DESC"));
+        }
+
+        /// <summary>
+        /// 执行一条sql,删除，修改
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public int setUpdate(string sql) {
+            return db.GetExecuteNonQuery(sql);
         }
 
         /// <summary>

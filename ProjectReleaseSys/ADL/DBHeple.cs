@@ -145,10 +145,7 @@ namespace ADL
                             ReleaseInfo fo = new ReleaseInfo();
                             fo.Id = dr["id"].ToString();
                             fo.Title = dr["title"].ToString();
-                            if (dr["threshold"].ToString() != null)
-                            {
-                                fo.Threshold = Convert.ToDouble(dr["threshold"].ToString());
-                            }
+                            fo.Threshold = dr["threshold"].ToString();
                             fo.ThrowInTheCity = dr["throwInTheCity"].ToString();
                             fo.TeamIntroduction = dr["teamIntroduction"].ToString();
                             fo.ShareDivision = dr["shareDivision"].ToString();

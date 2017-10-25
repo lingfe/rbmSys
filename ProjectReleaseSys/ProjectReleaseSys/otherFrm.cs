@@ -168,7 +168,7 @@ namespace ProjectReleaseSys
                 MessageBox.Show("需要金额不能为空！");
                 return false;
             }
-            fo.Threshold = Convert.ToDouble(txt_threshold.Text);
+            fo.Threshold = txt_threshold.Text;
             fo.IndustryChoice = cob_industryChoice.Text;
             if (string.IsNullOrWhiteSpace(txt_projectDescription.Text)) {
                 MessageBox.Show("项目描述不能为空！");

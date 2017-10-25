@@ -176,7 +176,7 @@ namespace ProjectReleaseSys
                 MessageBox.Show("转让门槛不能为空!");
                 return false;
             }
-            fo.Threshold = Convert.ToDouble(txt_threshold.Text);
+            fo.Threshold = txt_threshold.Text;
             if (string.IsNullOrWhiteSpace(txt_monthlyRent.Text))
             {
                 MessageBox.Show("每月租金不能为空!");

@@ -91,6 +91,7 @@
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.刷新发布信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.刷新ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,6 +102,7 @@
             this.btn_Notpass = new System.Windows.Forms.Button();
             this.btn_lower = new System.Windows.Forms.Button();
             this.btn_upper = new System.Windows.Forms.Button();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -314,6 +316,7 @@
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // r_id
             // 
@@ -452,14 +455,15 @@
             this.添加ToolStripMenuItem1,
             this.修改ToolStripMenuItem,
             this.删除ToolStripMenuItem1,
-            this.审核ToolStripMenuItem});
+            this.审核ToolStripMenuItem,
+            this.刷新发布信息ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 136);
             // 
             // 刷新ToolStripMenuItem
             // 
             this.刷新ToolStripMenuItem.Name = "刷新ToolStripMenuItem";
-            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.刷新ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.刷新ToolStripMenuItem.Text = "刷新";
             this.刷新ToolStripMenuItem.Click += new System.EventHandler(this.刷新ToolStripMenuItem_Click);
             // 
@@ -475,7 +479,7 @@
             this.房产投资ToolStripMenuItem,
             this.其他ToolStripMenuItem});
             this.添加ToolStripMenuItem1.Name = "添加ToolStripMenuItem1";
-            this.添加ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.添加ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
             this.添加ToolStripMenuItem1.Text = "添加";
             // 
             // 合伙创业ToolStripMenuItem
@@ -536,23 +540,30 @@
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem1
             // 
             this.删除ToolStripMenuItem1.Name = "删除ToolStripMenuItem1";
-            this.删除ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
             this.删除ToolStripMenuItem1.Text = "删除";
             this.删除ToolStripMenuItem1.Click += new System.EventHandler(this.删除ToolStripMenuItem1_Click);
             // 
             // 审核ToolStripMenuItem
             // 
             this.审核ToolStripMenuItem.Name = "审核ToolStripMenuItem";
-            this.审核ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.审核ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.审核ToolStripMenuItem.Text = "审核";
             this.审核ToolStripMenuItem.Click += new System.EventHandler(this.btn_Toexamine_Click);
+            // 
+            // 刷新发布信息ToolStripMenuItem
+            // 
+            this.刷新发布信息ToolStripMenuItem.Name = "刷新发布信息ToolStripMenuItem";
+            this.刷新发布信息ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.刷新发布信息ToolStripMenuItem.Text = "刷新发布信息";
+            this.刷新发布信息ToolStripMenuItem.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // dataGridView1
             // 
@@ -660,11 +671,24 @@
             this.btn_upper.UseVisualStyleBackColor = true;
             this.btn_upper.Click += new System.EventHandler(this.btn_upper_Click);
             // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Refresh.Location = new System.Drawing.Point(266, 534);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(75, 26);
+            this.btn_Refresh.TabIndex = 14;
+            this.btn_Refresh.Text = "刷新";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Visible = false;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // forMian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1252, 748);
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.btn_upper);
             this.Controls.Add(this.btn_lower);
             this.Controls.Add(this.btn_Notpass);
@@ -773,6 +797,8 @@
         private System.Windows.Forms.Button btn_Notpass;
         private System.Windows.Forms.Button btn_lower;
         private System.Windows.Forms.Button btn_upper;
+        private System.Windows.Forms.Button btn_Refresh;
+        private System.Windows.Forms.ToolStripMenuItem 刷新发布信息ToolStripMenuItem;
     }
 }
 

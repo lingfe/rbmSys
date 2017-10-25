@@ -19,8 +19,9 @@ namespace ProjectReleaseSys
             InitializeComponent();
         }
 
-
-                
+        /// <summary>
+        /// 主窗体对象
+        /// </summary>
         forMian mian=null;
         public ganguSatisfiedBefore(forMian mian)
         {
@@ -28,6 +29,32 @@ namespace ProjectReleaseSys
             this.mian = mian;
         }
 
+        /// <summary>
+        /// 执行修改的命令
+        /// </summary>
+        string update = null;
+        public ganguSatisfiedBefore(string update, string id, forMian mian)
+        {
+            this.update = update;
+            this.id = id;
+            this.mian = mian;
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// 发布信息id
+        /// </summary>
+        string id = null;
+        public ganguSatisfiedBefore(string id, forMian mian)
+        {
+            this.id = id;
+            this.mian = mian;
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// 定义数据服务对象
+        /// </summary>
         ReleaseInfoSql sql = new ReleaseInfoSql();
 
 
@@ -38,6 +65,16 @@ namespace ProjectReleaseSys
         /// <param name="e"></param>
         private void btn_clear_Click(object sender, EventArgs e)
         {
+            //判断id是否为空
+            if (!string.IsNullOrWhiteSpace(this.id) && string.IsNullOrWhiteSpace(this.update))
+            {
+                //执行修改状态
+                sql.setWhereDF(0, this.id);
+                List<ReleaseInfo> info = sql.getWhereList("where id='" + this.id + "'");
+                this.mian.getList(info);
+                this.Close();
+                return;
+            }
             txt_imageArray.Text = "";
             txt_incomeDescription.Text = "";
             txt_phone.Text = "";
@@ -52,6 +89,7 @@ namespace ProjectReleaseSys
             imageList1.Images.Clear();
         }
 
+        int df = 0;
         /// <summary>
         /// 发布其他
         /// </summary>
@@ -59,12 +97,22 @@ namespace ProjectReleaseSys
         /// <param name="e"></param>
         private void btn_ok_Click(object sender, EventArgs e)
         {
+            //判断id是否为空
+            if (!string.IsNullOrWhiteSpace(this.id) && string.IsNullOrWhiteSpace(this.update))
+            {
+                //执行修改状态
+                sql.setWhereDF(5, this.id);
+                List<ReleaseInfo> info = sql.getWhereList("where id='" + this.id + "'");
+                this.mian.getList(info);
+                this.Close();
+                return;
+            }
+
             //实例化实体对象
             ReleaseInfo fo = new ReleaseInfo();
             //验证非空
             if (!this.getIsNull(fo)) return;
-            //UUID
-            //string id1 = System.Guid.NewGuid().ToString();
+
             //一句话即可，但此时id中有“-”符号存在，使用下面语句可变为纯字母+数字。
             string id = System.Guid.NewGuid().ToString("N");
             //赋值
@@ -72,7 +120,7 @@ namespace ProjectReleaseSys
             fo.PersonalId = PublicField.adminId;
             fo.ReleaseType = "干股纳才";
             fo.CurrentCity = PublicField.address;          //默认贵阳
-            fo.Df = 0;                                     //默认正常显示
+            fo.Df = this.df;                                     //默认正常显示
             fo.Cdate = DateTime.Now;
             fo.Mdate = fo.Cdate;
             fo.Creator = fo.PersonalId;
@@ -81,10 +129,25 @@ namespace ProjectReleaseSys
             int tt = sql.setInsert(fo);
             if (tt != -1)
             {
-                MessageBox.Show("发布成功！");
-                this.btn_clear_Click(sender, e);
-                //刷新主窗体数据
-                if (this.mian != null) this.mian.getList(null);
+                //判断id,update是否为空
+                if (!string.IsNullOrWhiteSpace(this.id) && !string.IsNullOrWhiteSpace(this.update))
+                {
+                    MessageBox.Show("修改成功！");
+                    //删除原始数据
+                    sql.setdelelte(this.id);
+                    List<ReleaseInfo> info = sql.getWhereList("where id='" + fo.Id + "'");
+                    this.mian.getList(info);
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("发布成功！");
+                    List<ReleaseInfo> info = sql.getWhereList("where id='" + fo.Id + "'");
+                    this.mian.getList(info);
+                    this.Close();
+                    return;
+                }
             }
             else
             {
@@ -110,7 +173,7 @@ namespace ProjectReleaseSys
                 MessageBox.Show("资源要求不能为空！");
                 return false;
             }
-            fo.Threshold = 0;
+            fo.Threshold = "0";
             fo.ResourceRequirements = txt_resourceRequirements.Text;
             fo.IndustryChoice = cob_industryChoice.Text;
             if (string.IsNullOrWhiteSpace(txt_shareDivision.Text)) {
@@ -170,6 +233,73 @@ namespace ProjectReleaseSys
         {
             cob_City.Text = PublicField.address;
             cob_industryChoice.SelectedIndex = 0;
+            //判断id,update是否为空
+            if (!string.IsNullOrWhiteSpace(this.id) && !string.IsNullOrWhiteSpace(this.update))
+            {
+                btn_ok.Text = "修改";
+                timer1.Interval = 2500;
+                //根据id得到数据
+                List<ReleaseInfo> infoList = sql.getWhereList("where id='" + this.id + "'");
+                foreach (ReleaseInfo info in infoList)
+                {
+                    this.df = info.Df;
+                    txt_imageArray.Text = info.ImageArray;
+                    //设置获取图片数量
+                    lbl_ImgNuber.Text = "总共：" + (txt_imageArray.Text.Split(',').Length) + "张";
+                    txt_incomeDescription.Text = info.IncomeDescription;
+                    txt_phone.Text = info.Phone;
+                    txt_projectDescription.Text = info.ProjectDescription;
+                    txt_title.Text = info.Title;
+                    cob_City.Text = info.CurrentCity;
+                    cob_industryChoice.Text = info.IndustryChoice;
+                    txt_resourceRequirements.Text = info.ResourceRequirements;
+                    txt_shareDivision.Text = info.ShareDivision;
+                    txt_teamIntroduction.Text = info.TeamIntroduction;
+                    
+                }
+            }//判断id是否为空
+            else if (!string.IsNullOrWhiteSpace(this.id))
+            {
+                btn_clear.Text = "通过";
+                btn_ok.Text = "不通过";
+                timer1.Interval = 2500;
+                //根据id得到数据
+                List<ReleaseInfo> infoList = sql.getWhereList("where id='" + this.id + "'");
+                foreach (ReleaseInfo info in infoList)
+                {
+                    txt_imageArray.Text = info.ImageArray;
+                    //设置获取图片数量
+                    lbl_ImgNuber.Text = "总共：" + (txt_imageArray.Text.Split(',').Length) + "张";
+                    button1.Enabled = false;
+
+                    txt_incomeDescription.Text = info.IncomeDescription;
+                    txt_incomeDescription.ReadOnly = true;
+
+                    txt_phone.Text = info.Phone;
+                    txt_phone.ReadOnly = true;
+
+                    txt_projectDescription.Text = info.ProjectDescription;
+                    txt_projectDescription.ReadOnly = true;
+
+                    txt_title.Text = info.Title;
+                    txt_title.ReadOnly = true;
+
+                    cob_City.Text = info.CurrentCity;
+                    cob_City.Enabled = false;
+
+                    cob_industryChoice.Text = info.IndustryChoice;
+                    cob_industryChoice.Enabled = false;
+
+                    txt_resourceRequirements.Text = info.ResourceRequirements;
+                    txt_resourceRequirements.ReadOnly = true;
+
+                    txt_shareDivision.Text = info.ShareDivision;
+                    txt_shareDivision.ReadOnly = true;
+
+                    txt_teamIntroduction.Text = info.TeamIntroduction;
+                    txt_teamIntroduction.ReadOnly = true;
+                }
+            }
         }
 
         /// <summary>
@@ -234,14 +364,35 @@ namespace ProjectReleaseSys
         /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (this.imageList1.Images.Count > tt)
+            //判断id是否为空
+            if (!string.IsNullOrWhiteSpace(this.id))
             {
-                //显示图片
-                lab_diji.Text = "第" + (tt + 1) + "张";
-                pictureBox1.Image = imageList1.Images[tt];
-                tt++;
+                string[] arr = txt_imageArray.Text.Split(',');
+                if (arr.Length > tt)
+                {
+                    //显示图片
+                    lab_diji.Text = "第" + (tt + 1) + "张";
+                    string str = PublicField.domainImage + arr[tt];
+                    this.pictureBox1.Image = null;
+                    this.pictureBox1.WaitOnLoad = false; //设置为异步加载图片  
+                    this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    this.pictureBox1.LoadAsync(str);
+
+                    tt++;
+                }
+                else tt = 0;
             }
-            else tt = 0;
+            else
+            {
+                if (this.imageList1.Images.Count > tt)
+                {
+                    //显示图片
+                    lab_diji.Text = "第" + (tt + 1) + "张";
+                    pictureBox1.Image = imageList1.Images[tt];
+                    tt++;
+                }
+                else tt = 0;
+            }
         }
 
         /// <summary>

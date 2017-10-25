@@ -335,20 +335,23 @@ namespace ProjectReleaseSys
 
                 //判断发布类型
                 if (releaseType == "合伙创业") {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
-                    
+                    partnershipFrm frm = new partnershipFrm(id,this);
+                    frm.ShowDialog();                    
                 }
                 else if (releaseType == "干股纳才")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    ganguSatisfiedBefore frm = new ganguSatisfiedBefore(id,this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "加盟代理")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    franchiseAgent frm = new franchiseAgent(id,this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "股权交易")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    equityTradingFrm frm = new equityTradingFrm(id, this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "生意转让")
                 {
@@ -357,11 +360,12 @@ namespace ProjectReleaseSys
                 }
                 else if (releaseType == "金融理财")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    MessageBox.Show("该类型的审核暂未完成!正在开发中.."); return;
                 }
                 else if (releaseType == "房产投资")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    propertyInvestmentFrm frm = new propertyInvestmentFrm(id,this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "其他")
                 {
@@ -505,7 +509,7 @@ namespace ProjectReleaseSys
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
                 string releaseType = listView1.SelectedItems[0].SubItems[1].Text;
                 //判断状态
-                if (listView1.SelectedItems[0].SubItems[2].Text == "显示中")
+                if (listView1.SelectedItems[0].SubItems[2].Text == "显示中" || listView1.SelectedItems[0].SubItems[2].Text == "审核中")
                 {
                     MessageBox.Show("该状态不允许修改!");
                     return;
@@ -514,20 +518,23 @@ namespace ProjectReleaseSys
                 //判断发布类型
                 if (releaseType == "合伙创业")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
-
+                    partnershipFrm frm = new partnershipFrm("update",id,this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "干股纳才")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    ganguSatisfiedBefore frm = new ganguSatisfiedBefore("update",id,this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "加盟代理")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    franchiseAgent frm = new franchiseAgent("update",id,this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "股权交易")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    equityTradingFrm frm = new equityTradingFrm("update",id,this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "生意转让")
                 {
@@ -537,11 +544,12 @@ namespace ProjectReleaseSys
                 }
                 else if (releaseType == "金融理财")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    MessageBox.Show("该类型暂不能修改!"); return;
                 }
                 else if (releaseType == "房产投资")
                 {
-                    MessageBox.Show("该类型的审核暂未完成!生意转让可以"); return;
+                    propertyInvestmentFrm frm = new propertyInvestmentFrm("update", id, this);
+                    frm.ShowDialog();
                 }
                 else if (releaseType == "其他")
                 {
@@ -553,6 +561,55 @@ namespace ProjectReleaseSys
             {
                 MessageBox.Show("请选择你要操作的数据");
             }
+        }
+
+        /// <summary>
+        /// 单个发布信息刷新
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+                        //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                DateTime mdate=DateTime.Now;
+                string str = string.Format("UPDATE releaseinfo set mdate='{0}'  WHERE id='{1}'",mdate,id);
+                int tt = sql.setUpdate(str);
+                if (tt != -1)
+                {
+                    this.getList(null);
+                    MessageBox.Show("刷新成功!");
+                }
+                else {
+                    MessageBox.Show("刷新失败!");
+                }
+           }else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+
+        }
+
+        /// <summary>
+        /// 点击
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_Refresh.Visible = true;
+        }
+
+        /// <summary>
+        /// 鼠标离开
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listView1_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Refresh.Visible = false;
         }
 
     }

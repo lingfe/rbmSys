@@ -45,11 +45,11 @@ namespace Model
             get { return title; }
             set { title = value; }
         }
-        private double threshold;// DOUBLE DEFAULT NULL COMMENT '入伙门槛，转让门槛,加盟金额,购入门槛，投资金额，代理金额,需要金额',
+        private string threshold;// DOUBLE DEFAULT NULL COMMENT '入伙门槛，转让门槛,加盟金额,购入门槛，投资金额，代理金额,需要金额',
         /// <summary>
         /// 入伙门槛，转让门槛,加盟金额,购入门槛，投资金额，代理金额,需要金额,出售金额
         /// </summary>
-        public double Threshold
+        public string Threshold
         {
             get { return threshold; }
             set { threshold = value; }
