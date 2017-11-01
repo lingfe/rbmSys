@@ -32,11 +32,23 @@ namespace ProjectReleaseSys
         /// <param name="e"></param>
         private void forMian_Load(object sender, EventArgs e)
         {
+            //调用初始化
+            this.chushihua();
+        }
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        public void chushihua()
+        {
             //管理员信息
             toolStripStatusLabel1.Text = "管理员:" + PublicField.adminName;
             toolStripStatusLabel2.Text = "管理员id：" + PublicField.adminId;
+
+            //根据当前id获取数据
+            List<ReleaseInfo> info = sql.getWhereList(" where  personalId='"+PublicField.adminId+"'");
             //加载数据
-            this.getList(null);
+            this.getList(info);
             this.getTable();
         }
 
@@ -53,13 +65,14 @@ namespace ProjectReleaseSys
             foreach (ReleaseInfo fo in info)
             {
                 ListViewItem lv = new ListViewItem(fo.Id);          //0.编号
+                lv.SubItems.Add(fo.PersonalId);                     //发布者
                 lv.SubItems.Add(fo.ReleaseType);                    //1.发布类型
-                
-                if (fo.Df == 0) r_df = "显示中";
-                else if (fo.Df == 1) r_df = "已下架";
-                else if (fo.Df == 2) r_df = "未发布";
-                else if (fo.Df == 4) r_df = "审核中";
-                else if (fo.Df == 5) r_df = "未通过";
+
+                if (fo.Staticstr == 0) r_df = "显示中";
+                else if (fo.Staticstr == 1) r_df = "已下架";
+                else if (fo.Staticstr == 2) r_df = "未发布";
+                else if (fo.Staticstr == 4) r_df = "审核中";
+                else if (fo.Staticstr == 5) r_df = "未通过";
                 lv.SubItems.Add(r_df);                              //2.状态
                 
                 lv.SubItems.Add(fo.Title);                          //3.标题
@@ -277,7 +290,7 @@ namespace ProjectReleaseSys
                 else if (df == "审核中") r_df = 4;
                 else if (df == "未通过") r_df = 5;
 
-                List<ReleaseInfo> info = sql.getWhereList("where df=" + r_df + "");
+                List<ReleaseInfo> info = sql.getWhereList("where static=" + r_df + "");
                 this.getList(info);
             }
             else {
@@ -599,7 +612,7 @@ namespace ProjectReleaseSys
         /// <param name="e"></param>
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btn_Refresh.Visible = true;
+           
         }
 
         /// <summary>
@@ -610,6 +623,51 @@ namespace ProjectReleaseSys
         private void listView1_MouseLeave(object sender, EventArgs e)
         {
             btn_Refresh.Visible = false;
+        }
+
+        /// <summary>
+        /// 系统生成一个管理员
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 系统生成ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sysAddUser sys = new sysAddUser(this);
+            sys.ShowDialog();
+        }
+
+        /// <summary>
+        /// 查看发布信息的帖子
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 查看帖子ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string releaseId = listView1.SelectedItems[0].SubItems[0].Text;
+                string personalId = listView1.SelectedItems[0].SubItems[1].Text;
+                string imgurl = listView1.SelectedItems[0].SubItems[12].Text;
+                viewPposts frm = new viewPposts(releaseId, personalId,imgurl);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 切换身份
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 切换身份ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            handoffIdentityFrom frm = new handoffIdentityFrom(null,this);
+            frm.ShowDialog();
         }
 
     }

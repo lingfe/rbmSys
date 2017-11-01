@@ -37,6 +37,9 @@
             this.xToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.建议ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.身份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.切换身份ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -88,9 +91,11 @@
             this.金融理财ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.房产投资ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.其他ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.审核ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.操作ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.审核ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看帖子ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新发布信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -103,6 +108,10 @@
             this.btn_lower = new System.Windows.Forms.Button();
             this.btn_upper = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
+            this.r_personalId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.身份ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.切换身份ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统生成ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -116,7 +125,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.菜单ToolStripMenuItem,
             this.帮助ToolStripMenuItem,
-            this.建议ToolStripMenuItem});
+            this.建议ToolStripMenuItem,
+            this.身份ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1252, 25);
@@ -162,6 +172,29 @@
             this.建议ToolStripMenuItem.Name = "建议ToolStripMenuItem";
             this.建议ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.建议ToolStripMenuItem.Text = "建议";
+            // 
+            // 身份ToolStripMenuItem
+            // 
+            this.身份ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.切换身份ToolStripMenuItem,
+            this.系统生成ToolStripMenuItem});
+            this.身份ToolStripMenuItem.Name = "身份ToolStripMenuItem";
+            this.身份ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.身份ToolStripMenuItem.Text = "身份";
+            // 
+            // 切换身份ToolStripMenuItem
+            // 
+            this.切换身份ToolStripMenuItem.Name = "切换身份ToolStripMenuItem";
+            this.切换身份ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.切换身份ToolStripMenuItem.Text = "切换身份";
+            this.切换身份ToolStripMenuItem.Click += new System.EventHandler(this.切换身份ToolStripMenuItem_Click);
+            // 
+            // 系统生成ToolStripMenuItem
+            // 
+            this.系统生成ToolStripMenuItem.Name = "系统生成ToolStripMenuItem";
+            this.系统生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.系统生成ToolStripMenuItem.Text = "系统生成";
+            this.系统生成ToolStripMenuItem.Click += new System.EventHandler(this.系统生成ToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -275,6 +308,7 @@
             this.listView1.BackgroundImageTiled = true;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.r_id,
+            this.r_personalId,
             this.r_type,
             this.r_df,
             this.r_title,
@@ -453,9 +487,9 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.刷新ToolStripMenuItem,
             this.添加ToolStripMenuItem1,
-            this.修改ToolStripMenuItem,
-            this.删除ToolStripMenuItem1,
-            this.审核ToolStripMenuItem,
+            this.操作ToolStripMenuItem,
+            this.身份ToolStripMenuItem1,
+            this.查看帖子ToolStripMenuItem,
             this.刷新发布信息ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(149, 136);
@@ -537,26 +571,43 @@
             this.其他ToolStripMenuItem.Text = "其他";
             this.其他ToolStripMenuItem.Click += new System.EventHandler(this.其他ToolStripMenuItem_Click);
             // 
-            // 修改ToolStripMenuItem
+            // 操作ToolStripMenuItem
             // 
-            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.修改ToolStripMenuItem.Text = "修改";
-            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.修改ToolStripMenuItem1,
+            this.删除ToolStripMenuItem2,
+            this.审核ToolStripMenuItem1});
+            this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
+            this.操作ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.操作ToolStripMenuItem.Text = "操作";
             // 
-            // 删除ToolStripMenuItem1
+            // 修改ToolStripMenuItem1
             // 
-            this.删除ToolStripMenuItem1.Name = "删除ToolStripMenuItem1";
-            this.删除ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
-            this.删除ToolStripMenuItem1.Text = "删除";
-            this.删除ToolStripMenuItem1.Click += new System.EventHandler(this.删除ToolStripMenuItem1_Click);
+            this.修改ToolStripMenuItem1.Name = "修改ToolStripMenuItem1";
+            this.修改ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.修改ToolStripMenuItem1.Text = "修改";
+            this.修改ToolStripMenuItem1.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
-            // 审核ToolStripMenuItem
+            // 删除ToolStripMenuItem2
             // 
-            this.审核ToolStripMenuItem.Name = "审核ToolStripMenuItem";
-            this.审核ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.审核ToolStripMenuItem.Text = "审核";
-            this.审核ToolStripMenuItem.Click += new System.EventHandler(this.btn_Toexamine_Click);
+            this.删除ToolStripMenuItem2.Name = "删除ToolStripMenuItem2";
+            this.删除ToolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem2.Text = "删除";
+            this.删除ToolStripMenuItem2.Click += new System.EventHandler(this.删除ToolStripMenuItem1_Click);
+            // 
+            // 审核ToolStripMenuItem1
+            // 
+            this.审核ToolStripMenuItem1.Name = "审核ToolStripMenuItem1";
+            this.审核ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.审核ToolStripMenuItem1.Text = "审核";
+            this.审核ToolStripMenuItem1.Click += new System.EventHandler(this.btn_Toexamine_Click);
+            // 
+            // 查看帖子ToolStripMenuItem
+            // 
+            this.查看帖子ToolStripMenuItem.Name = "查看帖子ToolStripMenuItem";
+            this.查看帖子ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.查看帖子ToolStripMenuItem.Text = "查看帖子";
+            this.查看帖子ToolStripMenuItem.Click += new System.EventHandler(this.查看帖子ToolStripMenuItem_Click);
             // 
             // 刷新发布信息ToolStripMenuItem
             // 
@@ -683,6 +734,33 @@
             this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
+            // r_personalId
+            // 
+            this.r_personalId.Text = "发布者";
+            // 
+            // 身份ToolStripMenuItem1
+            // 
+            this.身份ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.切换身份ToolStripMenuItem1,
+            this.系统生成ToolStripMenuItem1});
+            this.身份ToolStripMenuItem1.Name = "身份ToolStripMenuItem1";
+            this.身份ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.身份ToolStripMenuItem1.Text = "身份";
+            // 
+            // 切换身份ToolStripMenuItem1
+            // 
+            this.切换身份ToolStripMenuItem1.Name = "切换身份ToolStripMenuItem1";
+            this.切换身份ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.切换身份ToolStripMenuItem1.Text = "切换身份";
+            this.切换身份ToolStripMenuItem1.Click += new System.EventHandler(this.切换身份ToolStripMenuItem_Click);
+            // 
+            // 系统生成ToolStripMenuItem1
+            // 
+            this.系统生成ToolStripMenuItem1.Name = "系统生成ToolStripMenuItem1";
+            this.系统生成ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.系统生成ToolStripMenuItem1.Text = "系统生成";
+            this.系统生成ToolStripMenuItem1.Click += new System.EventHandler(this.系统生成ToolStripMenuItem_Click);
+            // 
             // forMian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -781,8 +859,6 @@
         private System.Windows.Forms.ToolStripMenuItem 金融理财ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 房产投资ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 其他ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem 刷新ToolStripMenuItem1;
@@ -791,7 +867,6 @@
         private System.Windows.Forms.ToolStripComboBox tool_industryChoice;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Toexamine;
-        private System.Windows.Forms.ToolStripMenuItem 审核ToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.Button btn_adopt;
         private System.Windows.Forms.Button btn_Notpass;
@@ -799,6 +874,18 @@
         private System.Windows.Forms.Button btn_upper;
         private System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.ToolStripMenuItem 刷新发布信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 身份ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 切换身份ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 系统生成ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 操作ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem 审核ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 查看帖子ToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader r_personalId;
+        private System.Windows.Forms.ToolStripMenuItem 身份ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 切换身份ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 系统生成ToolStripMenuItem1;
     }
 }
 

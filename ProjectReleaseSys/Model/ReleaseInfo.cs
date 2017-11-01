@@ -288,6 +288,18 @@ namespace Model
             get { return top; }
             set { top = value; }
         }
+        private int staticstr;//状态
+        /// <summary>
+        /// 0是正常，1已下架，2为发布，3正在审核，4审核未通过
+        /// </summary>
+        public int Staticstr
+        {
+            get { return staticstr; }
+            set { staticstr = value; }
+        }
+
+
+
         private DateTime cdate;// DATETIME DEFAULT NULL COMMENT '创建时间',
         /// <summary>
         /// 创建时间
@@ -326,7 +338,7 @@ namespace Model
         }
         private int df;// INT(11) DEFAULT '0' COMMENT '是否删除',
         /// <summary>
-        /// 是否删除,0=正常显示，1=已下架,2=未发布，4=审核中,5=未通过
+        /// 是否删除
         /// </summary>
         public int Df
         {

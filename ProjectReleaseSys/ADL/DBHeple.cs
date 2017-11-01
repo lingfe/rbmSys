@@ -39,6 +39,60 @@ namespace ADL
         MySqlDataAdapter da;
         #endregion
 
+
+        /// <summary>
+        /// 获取用户数据
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public List<User> getUserinfoList(string sql)
+        {
+            List<User> st = new List<User>();
+
+            try
+            {   //链接系统数据库echsoft
+                con = new MySqlConnection("server=39.108.118.48;port=3306;user id=dahuo;CharSet=utf8;password=dahuo;database=echsoft");
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            User fo = new User();
+                            fo.Id = dr["id"].ToString();
+                            fo.AvatarUrl = dr["AvatarUrl"].ToString();
+                            fo.Mobile = dr["Mobile"].ToString();
+                            fo.Realname = dr["Realname"].ToString();
+                            fo.Memo = dr["memo"].ToString();
+                            fo.Address = dr["address"].ToString();
+
+                            st.Add(fo);
+                        }
+                        dr.Close();
+                        cmd.Clone();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+               con.Close();
+            }
+
+            return st;
+        }
+
         /// <summary>
         /// 关闭数据库连接
         /// </summary>
@@ -167,7 +221,8 @@ namespace ADL
                             fo.Cdate = Convert.ToDateTime(dr["cdate"].ToString());
                             fo.Creator = dr["creator"].ToString();
                             fo.CurrentCity = dr["currentCity"].ToString();
-                            fo.Df = Convert.ToInt32(dr["df"].ToString());
+                            fo.Staticstr = Convert.ToInt32(dr["static"].ToString());
+                            fo.Df = Convert.ToInt32(dr["static"].ToString());
 
                             fo.FundDistribution = dr["FundDistribution"].ToString();
                             fo.GeographicalPosition = dr["GeographicalPosition"].ToString();
@@ -204,6 +259,63 @@ namespace ADL
             }
 
             return st;
-        }        
+        }
+
+        /// <summary>
+        /// 定义查询所有评论信息的方法
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>List集合</returns>
+        public List<Commentinfo> getcommentinfoList(string sql)
+        {
+            List<Commentinfo> st = new List<Commentinfo>();
+
+            try
+            {
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Commentinfo fo = new Commentinfo();
+                            fo.Id = dr["id"].ToString();
+                            fo.AvatarUrl = dr["AvatarUrl"].ToString();
+                            fo.Cdate = Convert.ToDateTime(dr["Cdate"].ToString());
+                            fo.CommentContent = dr["CommentContent"].ToString();
+                            fo.Creator = dr["Creator"].ToString();
+                            fo.Df = Int32.Parse(dr["df"].ToString());
+                            fo.Mdate = Convert.ToDateTime(dr["Mdate"].ToString());
+                            fo.PersonalId = dr["PersonalId"].ToString();
+                            fo.ReleaseId = dr["ReleaseId"].ToString();
+                            fo.Remark = dr["Remark"].ToString();
+                            fo.Uman = dr["Uman"].ToString();
+                            fo.Version = Int32.Parse(dr["Version"].ToString());
+                            
+                            st.Add(fo);
+                        }
+                        dr.Close();
+                        cmd.Clone();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                //con.Close();
+            }
+
+            return st;
+        } 
     }
 }

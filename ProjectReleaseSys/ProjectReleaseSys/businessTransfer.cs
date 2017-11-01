@@ -93,7 +93,7 @@ namespace ProjectReleaseSys
 
         }
 
-        int df = 0;
+        int staticstr = 0;
         /// <summary>
         /// 发布生意转让
         /// </summary>
@@ -124,7 +124,7 @@ namespace ProjectReleaseSys
                 fo.PersonalId = PublicField.adminId;
                 fo.ReleaseType = "生意转让";
                 fo.CurrentCity = PublicField.address;          //默认贵阳
-                fo.Df = this.df;                               //默认正常显示
+                fo.Staticstr = this.staticstr;                               //默认正常显示
                 fo.Cdate = DateTime.Now;
                 fo.Mdate = fo.Cdate;
                 fo.Creator = fo.PersonalId;
@@ -347,7 +347,7 @@ namespace ProjectReleaseSys
                 List<ReleaseInfo> infoList = sql.getWhereList("where id='" + this.id + "'");
                 foreach (ReleaseInfo info in infoList)
                 {
-                    this.df = info.Df;
+                    this.staticstr = info.Staticstr;
                     txt_title.Text = info.Title;
                     cob_City.Text = info.CurrentCity;
                     txt_threshold.Text = info.Threshold.ToString();

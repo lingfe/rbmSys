@@ -76,6 +76,12 @@
     <Compile Include="ganguSatisfiedBefore.Designer.cs">
       <DependentUpon>ganguSatisfiedBefore.cs</DependentUpon>
     </Compile>
+    <Compile Include="handoffIdentityFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="handoffIdentityFrom.Designer.cs">
+      <DependentUpon>handoffIdentityFrom.cs</DependentUpon>
+    </Compile>
     <Compile Include="loginFrm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,11 +110,23 @@
       <DependentUpon>propertyInvestmentFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="PublicField.cs" />
+    <Compile Include="sysAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sysAddUser.Designer.cs">
+      <DependentUpon>sysAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="upload.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="upload.Designer.cs">
       <DependentUpon>upload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewPposts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewPposts.Designer.cs">
+      <DependentUpon>viewPposts.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="businessTransfer.resx">
       <DependentUpon>businessTransfer.cs</DependentUpon>
@@ -124,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ganguSatisfiedBefore.resx">
       <DependentUpon>ganguSatisfiedBefore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="handoffIdentityFrom.resx">
+      <DependentUpon>handoffIdentityFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="loginFrm.resx">
       <DependentUpon>loginFrm.cs</DependentUpon>
@@ -146,8 +167,14 @@
     <EmbeddedResource Include="propertyInvestmentFrm.resx">
       <DependentUpon>propertyInvestmentFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sysAddUser.resx">
+      <DependentUpon>sysAddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="upload.resx">
       <DependentUpon>upload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewPposts.resx">
+      <DependentUpon>viewPposts.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

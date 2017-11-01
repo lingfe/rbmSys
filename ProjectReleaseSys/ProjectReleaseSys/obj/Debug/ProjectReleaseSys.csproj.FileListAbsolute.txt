@@ -37,12 +37,15 @@ G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.equity
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.forMian.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.franchiseAgent.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.ganguSatisfiedBefore.resources
+G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.handoffIdentityFrom.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.loginFrm.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.otherFrm.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.partnershipFrm.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.Properties.Resources.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.propertyInvestmentFrm.resources
+G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.sysAddUser.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.upload.resources
+G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.viewPposts.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.csproj.GenerateResource.Cache
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.exe
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.pdb

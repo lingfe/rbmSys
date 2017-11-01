@@ -44,11 +44,11 @@ namespace BLL
         /// <summary>
         /// 修改发布信息的状态
         /// </summary>
-        /// <param name="df">状态</param>
+        /// <param name="staticstr">状态</param>
         /// <param name="id">编号</param>
         /// <returns></returns>
-        public int setWhereDF(int df,string id) {
-            return db.GetExecuteNonQuery(string.Format("UPDATE releaseinfo set df={0}  WHERE id='{1}'",df,id));
+        public int setWhereDF(int staticstr,string id) {
+            return db.GetExecuteNonQuery(string.Format("UPDATE releaseinfo set static={0}  WHERE id='{1}'", staticstr, id));
         }
 
         /// <summary>
@@ -83,20 +83,20 @@ namespace BLL
                 +"`publisherIdentity`,`geographicalPosition`,`operatingArea`,`monthlyRent`,`businessDescription`,`transferReason`,`throwInTheCity`,"
                 +"`headquartersLocation`,`resourceRequirements`,`shareDivision`,`productType`,`houseType`,`projectAdvantage`,`productCategory`,`productHighlights`,"
                 +"`currentCity`,`agentCondition`,`agencyRule`,"
-                +"`top`,`cdate`,`mdate`,`creator`,`uman`,`df`,`version`) "
+                + "`top`,static,`cdate`,`mdate`,`creator`,`uman`,`df`,`version`) "
                 +"VALUES "
                 +"('{0}','{1}','{2}','{3}',{4},"
                 +"'{5}','{6}','{7}','{8}','{9}','{10}','{11}',"
                 +"'{12}','{13}','{14}','{15}','{16}','{17}','{18}',"
                 +"'{19}','{20}','{21}','{22}','{23}','{24}','{25}','{26}',"
                 +"'{27}','{28}','{29}',"
-                +"{30},'{31}','{32}','{33}','{34}',{35},{36})",
+                +"{30},'{31}','{32}','{33}','{34}','{35}',{36},{37})",
                 fo.Id,fo.ReleaseType,fo.PersonalId,fo.Title,fo.Threshold,
                 fo.IndustryChoice,fo.FundDistribution,fo.ProjectDescription,fo.IncomeDescription,fo.TeamIntroduction,fo.Phone,fo.ImageArray,
                 fo.PublisherIdentity,fo.GeographicalPosition,fo.OperatingArea,fo.MonthlyRent,fo.BusinessDescription,fo.TransferReason,fo.ThrowInTheCity,
                 fo.HeadquartersLocation,fo.ResourceRequirements,fo.ShareDivision,fo.ProductType,fo.HouseType,fo.ProjectAdvantage,fo.ProductCategory,fo.ProductHighlights,
                 fo.CurrentCity,fo.AgentCondition,fo.AgencyRule,
-                fo.Top,fo.Cdate,fo.Mdate,fo.Creator,fo.Uman,fo.Df,fo.Version);
+                fo.Top, fo.Staticstr,fo.Cdate, fo.Mdate, fo.Creator, fo.Uman, fo.Df, fo.Version);
 
             return db.GetExecuteNonQuery(sql);
         }

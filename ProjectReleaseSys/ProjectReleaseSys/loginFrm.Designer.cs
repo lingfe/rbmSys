@@ -40,6 +40,7 @@
             this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,10 +63,8 @@
             // 
             this.txt_adminName.Location = new System.Drawing.Point(144, 57);
             this.txt_adminName.Name = "txt_adminName";
-            this.txt_adminName.ReadOnly = true;
             this.txt_adminName.Size = new System.Drawing.Size(240, 21);
             this.txt_adminName.TabIndex = 1;
-            this.txt_adminName.Text = "快讯";
             // 
             // fileSystemWatcher1
             // 
@@ -88,7 +87,6 @@
             this.txt_adminId.ReadOnly = true;
             this.txt_adminId.Size = new System.Drawing.Size(240, 21);
             this.txt_adminId.TabIndex = 1;
-            this.txt_adminId.Text = "B86F5533AA384C5BBBE3F35A2EE65768";
             // 
             // btn_ok
             // 
@@ -124,6 +122,7 @@
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "切换身份>>";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -136,6 +135,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // loginFrm
             // 
@@ -150,6 +154,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lab_adminId);
             this.Controls.Add(this.lab_adminName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "loginFrm";
@@ -178,5 +183,6 @@
         private System.Windows.Forms.Label label1;
         private System.DirectoryServices.DirectorySearcher directorySearcher1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

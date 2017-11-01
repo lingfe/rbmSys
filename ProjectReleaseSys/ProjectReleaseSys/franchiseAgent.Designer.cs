@@ -332,6 +332,7 @@
             this.txt_imageArray.ReadOnly = true;
             this.txt_imageArray.Size = new System.Drawing.Size(152, 206);
             this.txt_imageArray.TabIndex = 122;
+            this.txt_imageArray.TextChanged += new System.EventHandler(this.txt_imageArray_TextChanged);
             // 
             // button1
             // 

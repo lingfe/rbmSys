@@ -88,7 +88,7 @@ namespace ProjectReleaseSys
             imageList1.Images.Clear();
         }
 
-        int df = 0;
+        int staticstr = 0;
         /// <summary>
         /// 发布其他
         /// </summary>
@@ -119,7 +119,7 @@ namespace ProjectReleaseSys
             fo.ReleaseType = "房产投资";
             fo.IndustryChoice = "地产";
             fo.CurrentCity = PublicField.address;          //默认贵阳
-            fo.Df = this.df;                                     //默认正常显示
+            fo.Staticstr = this.staticstr;                                     //默认正常显示
             fo.Cdate = DateTime.Now;
             fo.Mdate = fo.Cdate;
             fo.Creator = fo.PersonalId;
@@ -242,7 +242,7 @@ namespace ProjectReleaseSys
                 List<ReleaseInfo> infoList = sql.getWhereList("where id='" + this.id + "'");
                 foreach (ReleaseInfo info in infoList)
                 {
-                    this.df = info.Df;
+                    this.staticstr = info.Staticstr;
                     txt_imageArray.Text = info.ImageArray;
                     //设置获取图片数量
                     lbl_ImgNuber.Text = "总共：" + (txt_imageArray.Text.Split(',').Length) + "张";
