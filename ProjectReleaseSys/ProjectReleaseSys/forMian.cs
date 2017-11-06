@@ -341,7 +341,7 @@ namespace ProjectReleaseSys
                 string releaseType = listView1.SelectedItems[0].SubItems[1].Text;
 
                 //判断状态
-                if (listView1.SelectedItems[0].SubItems[2].Text!="审核中"){
+                if (listView1.SelectedItems[0].SubItems[3].Text!="审核中"){
                     MessageBox.Show("该状态不属于审核范围!");
                     return;
                 }
