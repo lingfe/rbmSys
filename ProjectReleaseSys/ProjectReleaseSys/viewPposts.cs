@@ -126,6 +126,7 @@ namespace ProjectReleaseSys
                 MessageBox.Show("评论内容不能为空!");
             }
         }
+      
         /// <summary>
         /// 发送留言通知
         /// </summary>
@@ -152,56 +153,29 @@ namespace ProjectReleaseSys
         }
 
         /// <summary>
-        /// 回复评论
+        /// 查看回复
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            //判断是否选择
+            //验证是否选中
             if (listView1.SelectedItems.Count != 0)
             {
-                string remark = listView1.SelectedItems[0].SubItems[5].Text;
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                string releaseId = listView1.SelectedItems[0].SubItems[1].Text;
+                string replyPersonalId = listView1.SelectedItems[0].SubItems[2].Text;
+                string commentName = listView1.SelectedItems[0].SubItems[5].Text;
 
-                if (!string.IsNullOrWhiteSpace(textBox1.Text))
-                {
-                    Commentinfo info = new Commentinfo();
-                    //uuid
-                    info.Id = System.Guid.NewGuid().ToString("N");
-                    info.ReleaseId = this.releaseId;
-                    info.PersonalId = PublicField.adminId;
-                    info.Remark = PublicField.adminName;
-                    info.AvatarUrl = PublicField.adminImg;
-                    info.Cdate = DateTime.Now;
-                    info.Mdate = info.Cdate;
-                    info.CommentContent = "回复@" + remark+":"+textBox1.Text;
-                    info.Creator = PublicField.adminId;
-                    info.Uman = PublicField.adminId;
+                //打开回复窗体
+                viewReplyFrm reply = new viewReplyFrm(id,releaseId,replyPersonalId,commentName);
+                reply.ShowDialog();
 
-                    //调用方法
-                    int tt = sql.setCommentInfo(info);
-                    if (tt != -1)
-                    {
-                        //发送通知
-                        this.setNotice(info.CommentContent);
-                        this.getcommList();
-                        MessageBox.Show("回复成功!");
-                        textBox1.Text = "";
-                    }
-                    else
-                    {
-                        MessageBox.Show("回复失败!");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("回复内容不能为空!");
-                }
+            }else {
+                MessageBox.Show("请选择您要查看的回复!");
+                return;
             }
-            else
-            {
-                MessageBox.Show("请选择你要操作的数据");
-            }
+
         }
 
         /// <summary>

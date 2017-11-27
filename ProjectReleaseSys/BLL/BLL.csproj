@@ -43,6 +43,7 @@
     <Compile Include="NoticeSql.cs" />
     <Compile Include="ReleaseInfoSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplySql.cs" />
     <Compile Include="UpdateUtile.cs" />
     <Compile Include="UserSql.cs" />
   </ItemGroup>

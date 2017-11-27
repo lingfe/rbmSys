@@ -338,7 +338,7 @@ namespace ProjectReleaseSys
             if (listView1.SelectedItems.Count != 0)
             {
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
-                string releaseType = listView1.SelectedItems[0].SubItems[1].Text;
+                string releaseType = listView1.SelectedItems[0].SubItems[2].Text;
 
                 //判断状态
                 if (listView1.SelectedItems[0].SubItems[3].Text!="审核中"){

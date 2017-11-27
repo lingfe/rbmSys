@@ -46,6 +46,7 @@ G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.proper
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.sysAddUser.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.upload.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.viewPposts.resources
+G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.viewReplyFrm.resources
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.csproj.GenerateResource.Cache
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.exe
 G:\rbmSys\ProjectReleaseSys\ProjectReleaseSys\obj\Debug\ProjectReleaseSys.pdb

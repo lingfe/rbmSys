@@ -128,6 +128,12 @@
     <Compile Include="viewPposts.Designer.cs">
       <DependentUpon>viewPposts.cs</DependentUpon>
     </Compile>
+    <Compile Include="viewReplyFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewReplyFrm.Designer.cs">
+      <DependentUpon>viewReplyFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="businessTransfer.resx">
       <DependentUpon>businessTransfer.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="viewPposts.resx">
       <DependentUpon>viewPposts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewReplyFrm.resx">
+      <DependentUpon>viewReplyFrm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

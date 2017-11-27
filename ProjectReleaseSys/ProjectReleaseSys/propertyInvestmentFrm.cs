@@ -55,6 +55,7 @@ namespace ProjectReleaseSys
         /// 定义数据服务对象
         /// </summary>
         ReleaseInfoSql sql = new ReleaseInfoSql();
+        NoticeSql sqlNotice = new NoticeSql();
 
         /// <summary>
         /// 清空文本框
@@ -68,6 +69,26 @@ namespace ProjectReleaseSys
             {
                 //执行修改状态
                 sql.setWhereDF(0, this.id);
+
+                //发送通知
+                Notice ice = new Notice();
+                ice.Id = System.Guid.NewGuid().ToString("N");
+                ice.PersonalId = this.PersonalId;
+                ice.ReleaseId = this.releaseId;
+                ice.Content = "您发布的信息已经通过!";
+                ice.ImgUrl = this.domainImage;
+                ice.StaticStr = 0;
+                ice.Ntype = "0";
+                ice.AvatarUrl = PublicField.adminImg;
+                ice.Uman = PublicField.adminId;
+                ice.Creator = PublicField.adminId;
+                ice.Cdate = DateTime.Now;
+                ice.Mdate = ice.Cdate;
+                ice.Notifyname = PublicField.adminName;
+
+                //调用
+                int tt = sqlNotice.setInsert(ice);
+
                 List<ReleaseInfo> info = sql.getWhereList("where id='" + this.id + "'");
                 this.mian.getList(info);
                 this.Close();
@@ -101,6 +122,26 @@ namespace ProjectReleaseSys
             {
                 //执行修改状态
                 sql.setWhereDF(5, this.id);
+                //发送通知
+                Notice ice = new Notice();
+                ice.Id = System.Guid.NewGuid().ToString("N");
+                ice.PersonalId = this.PersonalId;
+                ice.ReleaseId = this.releaseId;
+                ice.Content = "您发布的信息未通过!请检查并修改!";
+                ice.ImgUrl = this.domainImage;
+                ice.StaticStr = 0;
+                ice.Ntype = "0";
+                ice.AvatarUrl = PublicField.adminImg;
+                ice.Uman = PublicField.adminId;
+                ice.Creator = PublicField.adminId;
+                ice.Cdate = DateTime.Now;
+                ice.Mdate = ice.Cdate;
+                ice.Notifyname = PublicField.adminName;
+                ice.InfoType = this.InfoType;
+
+                //调用
+                sqlNotice.setInsert(ice);
+
                 List<ReleaseInfo> info = sql.getWhereList("where id='" + this.id + "'");
                 this.mian.getList(info);
                 this.Close();
@@ -224,6 +265,11 @@ namespace ProjectReleaseSys
 
         }
 
+        string PersonalId = "";
+        string releaseId = "";
+        string domainImage = "";
+        string InfoType = "";
+
         /// <summary>
         /// 窗体加载
         /// </summary>
@@ -268,6 +314,11 @@ namespace ProjectReleaseSys
                 List<ReleaseInfo> infoList = sql.getWhereList("where id='" + this.id + "'");
                 foreach (ReleaseInfo info in infoList)
                 {
+                    this.PersonalId = info.PersonalId;
+                    this.releaseId = info.Id;
+                    this.domainImage = info.ImageArray.Split(',')[0];
+                    this.InfoType = info.ReleaseType;
+
                     txt_imageArray.Text = info.ImageArray;
                     //设置获取图片数量
                     lbl_ImgNuber.Text = "总共：" + (txt_imageArray.Text.Split(',').Length) + "张";

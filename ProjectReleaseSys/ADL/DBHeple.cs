@@ -94,6 +94,67 @@ namespace ADL
         }
 
         /// <summary>
+        /// 获取回复数据
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public List<Reply> getReplyInfoList(string sql) {
+
+            List<Reply> st = new List<Reply>();
+
+            try
+            {   
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+
+                    using (MySqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Reply fo = new Reply();
+                            fo.Id = dr["id"].ToString();
+                            fo.AvatarUrl = dr["AvatarUrl"].ToString();
+                            fo.Cdate = Convert.ToDateTime(dr["cdate"].ToString());
+                            fo.CommentinfoId = dr["CommentinfoId"].ToString();
+                            fo.Content = dr["Content"].ToString();
+                            fo.Creator = dr["Creator"].ToString();
+                            fo.Df = Int32.Parse(dr["df"].ToString());
+                            fo.Mdate = Convert.ToDateTime(dr["mdate"].ToString());
+                            fo.Memo = dr["memo"].ToString();
+                            fo.PersonalId = dr["PersonalId"].ToString();
+                            fo.PersonalName = dr["PersonalName"].ToString();
+                            fo.ReleaseId = dr["ReleaseId"].ToString();
+                            fo.ReplypersonalId = dr["ReplypersonalId"].ToString();
+                            fo.Uman = dr["Uman"].ToString();
+                            fo.Version = Int32.Parse(dr["Version"].ToString());
+                            
+                            st.Add(fo);
+                        }
+                        dr.Close();
+                        cmd.Clone();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                //con.Close();
+            }
+
+            return st;
+
+        }
+
+        /// <summary>
         /// 关闭数据库连接
         /// </summary>
         public void close() {
