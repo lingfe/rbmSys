@@ -41,6 +41,42 @@ namespace ADL
 
 
         /// <summary>
+        /// 返回影响的行数的方法
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>影响的行数</returns>
+        public int GetExecuteNonQueryUser(string sql)
+        {
+            int tt = -1;
+            try
+            {
+                //链接系统数据库echsoft
+                con = new MySqlConnection("server=39.108.118.48;port=3306;user id=dahuo;CharSet=utf8;password=dahuo;database=echsoft");
+                con.Open();
+                using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                {
+                    tt = cmd.ExecuteNonQuery();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                Console.WriteLine(ex.Message);
+
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return tt;
+        }
+
+        /// <summary>
         /// 获取用户数据
         /// </summary>
         /// <param name="sql"></param>
@@ -175,6 +211,7 @@ namespace ADL
 
             return ds;
         }
+
 
         /// <summary>
         /// 返回影响的行数的方法

@@ -48,9 +48,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tool_df = new System.Windows.Forms.ToolStripComboBox();
             this.tool_industryChoice = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.txt_seachKey = new System.Windows.Forms.ToolStripTextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.r_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.r_personalId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_df = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.r_title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -95,6 +96,9 @@
             this.修改ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.审核ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.身份ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.切换身份ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.系统生成ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.查看帖子ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.刷新发布信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -108,10 +112,14 @@
             this.btn_lower = new System.Windows.Forms.Button();
             this.btn_upper = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
-            this.r_personalId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.身份ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.切换身份ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统生成ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_zhiding = new System.Windows.Forms.Button();
+            this.btn_Not_zhiding = new System.Windows.Forms.Button();
+            this.状态设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设为精品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.取消精品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设为官方ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_guanfang = new System.Windows.Forms.Button();
+            this.btn_not_guanfang = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -185,14 +193,14 @@
             // 切换身份ToolStripMenuItem
             // 
             this.切换身份ToolStripMenuItem.Name = "切换身份ToolStripMenuItem";
-            this.切换身份ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.切换身份ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.切换身份ToolStripMenuItem.Text = "切换身份";
             this.切换身份ToolStripMenuItem.Click += new System.EventHandler(this.切换身份ToolStripMenuItem_Click);
             // 
             // 系统生成ToolStripMenuItem
             // 
             this.系统生成ToolStripMenuItem.Name = "系统生成ToolStripMenuItem";
-            this.系统生成ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.系统生成ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.系统生成ToolStripMenuItem.Text = "系统生成";
             this.系统生成ToolStripMenuItem.Click += new System.EventHandler(this.系统生成ToolStripMenuItem_Click);
             // 
@@ -226,7 +234,7 @@
             this.toolStripSeparator1,
             this.tool_df,
             this.tool_industryChoice,
-            this.toolStripTextBox1});
+            this.txt_seachKey});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 4);
@@ -296,11 +304,11 @@
             this.tool_industryChoice.Text = "全部行业";
             this.tool_industryChoice.SelectedIndexChanged += new System.EventHandler(this.tool_industryChoice_SelectedIndexChanged);
             // 
-            // toolStripTextBox1
+            // txt_seachKey
             // 
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            this.toolStripTextBox1.Text = "关键字搜索";
+            this.txt_seachKey.Name = "txt_seachKey";
+            this.txt_seachKey.Size = new System.Drawing.Size(100, 25);
+            this.txt_seachKey.Text = "关键字搜索";
             // 
             // listView1
             // 
@@ -355,6 +363,10 @@
             // r_id
             // 
             this.r_id.Text = "编号";
+            // 
+            // r_personalId
+            // 
+            this.r_personalId.Text = "发布者";
             // 
             // r_type
             // 
@@ -576,7 +588,8 @@
             this.操作ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.修改ToolStripMenuItem1,
             this.删除ToolStripMenuItem2,
-            this.审核ToolStripMenuItem1});
+            this.审核ToolStripMenuItem1,
+            this.状态设置ToolStripMenuItem});
             this.操作ToolStripMenuItem.Name = "操作ToolStripMenuItem";
             this.操作ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.操作ToolStripMenuItem.Text = "操作";
@@ -584,23 +597,46 @@
             // 修改ToolStripMenuItem1
             // 
             this.修改ToolStripMenuItem1.Name = "修改ToolStripMenuItem1";
-            this.修改ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.修改ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.修改ToolStripMenuItem1.Text = "修改";
             this.修改ToolStripMenuItem1.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem2
             // 
             this.删除ToolStripMenuItem2.Name = "删除ToolStripMenuItem2";
-            this.删除ToolStripMenuItem2.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.删除ToolStripMenuItem2.Text = "删除";
             this.删除ToolStripMenuItem2.Click += new System.EventHandler(this.删除ToolStripMenuItem1_Click);
             // 
             // 审核ToolStripMenuItem1
             // 
             this.审核ToolStripMenuItem1.Name = "审核ToolStripMenuItem1";
-            this.审核ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.审核ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.审核ToolStripMenuItem1.Text = "审核";
             this.审核ToolStripMenuItem1.Click += new System.EventHandler(this.btn_Toexamine_Click);
+            // 
+            // 身份ToolStripMenuItem1
+            // 
+            this.身份ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.切换身份ToolStripMenuItem1,
+            this.系统生成ToolStripMenuItem1});
+            this.身份ToolStripMenuItem1.Name = "身份ToolStripMenuItem1";
+            this.身份ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.身份ToolStripMenuItem1.Text = "身份";
+            // 
+            // 切换身份ToolStripMenuItem1
+            // 
+            this.切换身份ToolStripMenuItem1.Name = "切换身份ToolStripMenuItem1";
+            this.切换身份ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.切换身份ToolStripMenuItem1.Text = "切换身份";
+            this.切换身份ToolStripMenuItem1.Click += new System.EventHandler(this.切换身份ToolStripMenuItem_Click);
+            // 
+            // 系统生成ToolStripMenuItem1
+            // 
+            this.系统生成ToolStripMenuItem1.Name = "系统生成ToolStripMenuItem1";
+            this.系统生成ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.系统生成ToolStripMenuItem1.Text = "系统生成";
+            this.系统生成ToolStripMenuItem1.Click += new System.EventHandler(this.系统生成ToolStripMenuItem_Click);
             // 
             // 查看帖子ToolStripMenuItem
             // 
@@ -731,41 +767,89 @@
             this.btn_Refresh.TabIndex = 14;
             this.btn_Refresh.Text = "刷新";
             this.btn_Refresh.UseVisualStyleBackColor = true;
-            this.btn_Refresh.Visible = false;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
-            // r_personalId
+            // btn_zhiding
             // 
-            this.r_personalId.Text = "发布者";
+            this.btn_zhiding.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_zhiding.Location = new System.Drawing.Point(363, 534);
+            this.btn_zhiding.Name = "btn_zhiding";
+            this.btn_zhiding.Size = new System.Drawing.Size(75, 26);
+            this.btn_zhiding.TabIndex = 14;
+            this.btn_zhiding.Text = "设为精品";
+            this.btn_zhiding.UseVisualStyleBackColor = true;
+            this.btn_zhiding.Click += new System.EventHandler(this.btn_zhiding_Click);
             // 
-            // 身份ToolStripMenuItem1
+            // btn_Not_zhiding
             // 
-            this.身份ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.切换身份ToolStripMenuItem1,
-            this.系统生成ToolStripMenuItem1});
-            this.身份ToolStripMenuItem1.Name = "身份ToolStripMenuItem1";
-            this.身份ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
-            this.身份ToolStripMenuItem1.Text = "身份";
+            this.btn_Not_zhiding.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_Not_zhiding.Location = new System.Drawing.Point(444, 534);
+            this.btn_Not_zhiding.Name = "btn_Not_zhiding";
+            this.btn_Not_zhiding.Size = new System.Drawing.Size(75, 26);
+            this.btn_Not_zhiding.TabIndex = 14;
+            this.btn_Not_zhiding.Text = "取消精品";
+            this.btn_Not_zhiding.UseVisualStyleBackColor = true;
+            this.btn_Not_zhiding.Click += new System.EventHandler(this.btn_Not_zhiding_Click);
             // 
-            // 切换身份ToolStripMenuItem1
+            // 状态设置ToolStripMenuItem
             // 
-            this.切换身份ToolStripMenuItem1.Name = "切换身份ToolStripMenuItem1";
-            this.切换身份ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.切换身份ToolStripMenuItem1.Text = "切换身份";
-            this.切换身份ToolStripMenuItem1.Click += new System.EventHandler(this.切换身份ToolStripMenuItem_Click);
+            this.状态设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设为官方ToolStripMenuItem,
+            this.设为精品ToolStripMenuItem,
+            this.取消精品ToolStripMenuItem});
+            this.状态设置ToolStripMenuItem.Name = "状态设置ToolStripMenuItem";
+            this.状态设置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.状态设置ToolStripMenuItem.Text = "状态设置";
             // 
-            // 系统生成ToolStripMenuItem1
+            // 设为精品ToolStripMenuItem
             // 
-            this.系统生成ToolStripMenuItem1.Name = "系统生成ToolStripMenuItem1";
-            this.系统生成ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.系统生成ToolStripMenuItem1.Text = "系统生成";
-            this.系统生成ToolStripMenuItem1.Click += new System.EventHandler(this.系统生成ToolStripMenuItem_Click);
+            this.设为精品ToolStripMenuItem.Name = "设为精品ToolStripMenuItem";
+            this.设为精品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.设为精品ToolStripMenuItem.Text = "设为精品";
+            // 
+            // 取消精品ToolStripMenuItem
+            // 
+            this.取消精品ToolStripMenuItem.Name = "取消精品ToolStripMenuItem";
+            this.取消精品ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.取消精品ToolStripMenuItem.Text = "取消精品";
+            // 
+            // 设为官方ToolStripMenuItem
+            // 
+            this.设为官方ToolStripMenuItem.Name = "设为官方ToolStripMenuItem";
+            this.设为官方ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.设为官方ToolStripMenuItem.Text = "设为官方";
+            // 
+            // btn_guanfang
+            // 
+            this.btn_guanfang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_guanfang.Location = new System.Drawing.Point(554, 534);
+            this.btn_guanfang.Name = "btn_guanfang";
+            this.btn_guanfang.Size = new System.Drawing.Size(75, 26);
+            this.btn_guanfang.TabIndex = 14;
+            this.btn_guanfang.Text = "设为官方";
+            this.btn_guanfang.UseVisualStyleBackColor = true;
+            this.btn_guanfang.Click += new System.EventHandler(this.btn_guanfang_Click);
+            // 
+            // btn_not_guanfang
+            // 
+            this.btn_not_guanfang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_not_guanfang.Location = new System.Drawing.Point(635, 535);
+            this.btn_not_guanfang.Name = "btn_not_guanfang";
+            this.btn_not_guanfang.Size = new System.Drawing.Size(75, 26);
+            this.btn_not_guanfang.TabIndex = 14;
+            this.btn_not_guanfang.Text = "取消官方";
+            this.btn_not_guanfang.UseVisualStyleBackColor = true;
+            this.btn_not_guanfang.Click += new System.EventHandler(this.btn_not_guanfang_Click);
             // 
             // forMian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1252, 748);
+            this.Controls.Add(this.btn_Not_zhiding);
+            this.Controls.Add(this.btn_not_guanfang);
+            this.Controls.Add(this.btn_guanfang);
+            this.Controls.Add(this.btn_zhiding);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.btn_upper);
             this.Controls.Add(this.btn_lower);
@@ -867,7 +951,7 @@
         private System.Windows.Forms.ToolStripComboBox tool_industryChoice;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Toexamine;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox txt_seachKey;
         private System.Windows.Forms.Button btn_adopt;
         private System.Windows.Forms.Button btn_Notpass;
         private System.Windows.Forms.Button btn_lower;
@@ -886,6 +970,14 @@
         private System.Windows.Forms.ToolStripMenuItem 身份ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 切换身份ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 系统生成ToolStripMenuItem1;
+        private System.Windows.Forms.Button btn_zhiding;
+        private System.Windows.Forms.Button btn_Not_zhiding;
+        private System.Windows.Forms.ToolStripMenuItem 状态设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设为官方ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设为精品ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 取消精品ToolStripMenuItem;
+        private System.Windows.Forms.Button btn_guanfang;
+        private System.Windows.Forms.Button btn_not_guanfang;
     }
 }
 

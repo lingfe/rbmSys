@@ -37,6 +37,7 @@
             this.lab_adminId = new System.Windows.Forms.Label();
             this.lab_adminName = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_add = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,11 +114,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btn_add
+            // 
+            this.btn_add.Location = new System.Drawing.Point(227, 257);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(127, 23);
+            this.btn_add.TabIndex = 11;
+            this.btn_add.Text = "保存为用户";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
             // sysAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 315);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_NO);
             this.Controls.Add(this.btn_ok);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Label lab_adminId;
         private System.Windows.Forms.Label lab_adminName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btn_add;
     }
 }

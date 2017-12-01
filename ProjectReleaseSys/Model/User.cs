@@ -68,6 +68,47 @@ namespace Model
             set { address = value; }
         }
 
+        private int df;//    `df` INT(11) DEFAULT '32' COMMENT '是否删除',
 
+        public int Df
+        {
+            get { return df; }
+            set { df = value; }
+        }
+        private string creator;//  `creator` VARCHAR(32) DEFAULT NULL COMMENT '创建人',
+
+        public string Creator
+        {
+            get { return creator; }
+            set { creator = value; }
+        }
+        private string uman;//  `uman` VARCHAR(32) DEFAULT NULL COMMENT '修改人',
+
+        public string Uman
+        {
+            get { return uman; }
+            set { uman = value; }
+        }
+        private DateTime cdate;//  `cdate` DATETIME DEFAULT NULL COMMENT '创建时间',
+
+        public DateTime Cdate
+        {
+            get { return cdate; }
+            set { cdate = value; }
+        }
+        private DateTime mdate;//  `mdate` DATETIME DEFAULT NULL COMMENT '最后修改时间',
+
+        public DateTime Mdate
+        {
+            get { return mdate; }
+            set { mdate = value; }
+        }
+        private int version;//  `version` INT(11) DEFAULT '0' COMMENT '数据版本',
+
+        public int Version
+        {
+            get { return version; }
+            set { version = value; }
+        }
     }
 }

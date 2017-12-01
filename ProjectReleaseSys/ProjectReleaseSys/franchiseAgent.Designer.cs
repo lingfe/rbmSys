@@ -273,22 +273,9 @@
             // 
             this.cob_throwInTheCity.FormattingEnabled = true;
             this.cob_throwInTheCity.Items.AddRange(new object[] {
-            "餐饮",
-            "休闲娱乐",
-            "旅游与酒店",
-            "美发美容",
-            "教育",
-            "服饰鞋包",
-            "生活服务",
-            "汽车",
-            "地产",
-            "金融",
-            "家装建材",
-            "百货超市",
-            "医疗保健",
-            "建筑工程",
-            "工厂",
-            "其他"});
+            "成都",
+            "贵阳",
+            "重庆"});
             this.cob_throwInTheCity.Location = new System.Drawing.Point(138, 441);
             this.cob_throwInTheCity.Name = "cob_throwInTheCity";
             this.cob_throwInTheCity.Size = new System.Drawing.Size(348, 20);

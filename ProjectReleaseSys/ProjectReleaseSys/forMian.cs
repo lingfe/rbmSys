@@ -324,7 +324,10 @@ namespace ProjectReleaseSys
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("该功能暂未开通!");
+            //MessageBox.Show("该功能暂未开通!");
+            List<ReleaseInfo> infoList = sql.getWhereList(string.Format("where title like  '%{0}%'", txt_seachKey.Text));
+            this.getList(infoList);
+            MessageBox.Show("共找到" + infoList.Count + "条信息!");
         }
 
         /// <summary>
@@ -520,9 +523,9 @@ namespace ProjectReleaseSys
             if (listView1.SelectedItems.Count != 0)
             {
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
-                string releaseType = listView1.SelectedItems[0].SubItems[1].Text;
+                string releaseType = listView1.SelectedItems[0].SubItems[2].Text;
                 //判断状态
-                if (listView1.SelectedItems[0].SubItems[2].Text == "显示中" || listView1.SelectedItems[0].SubItems[2].Text == "审核中")
+                if (listView1.SelectedItems[0].SubItems[3].Text == "显示中" || listView1.SelectedItems[0].SubItems[3].Text == "审核中")
                 {
                     MessageBox.Show("该状态不允许修改!");
                     return;
@@ -583,7 +586,7 @@ namespace ProjectReleaseSys
         /// <param name="e"></param>
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-                        //判断是否选择
+             //判断是否选择
             if (listView1.SelectedItems.Count != 0)
             {
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
@@ -668,6 +671,118 @@ namespace ProjectReleaseSys
 
             handoffIdentityFrom frm = new handoffIdentityFrom(null,this);
             frm.ShowDialog();
+        }
+
+        /// <summary>
+        /// 设为精品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_zhiding_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                string str = string.Format("UPDATE releaseinfo set top = 2  WHERE id='{0}'", id);
+                int tt = sql.setUpdate(str);
+                if (tt != -1)
+                {
+                    MessageBox.Show("设为精品成功!");
+                }
+                else
+                {
+                    MessageBox.Show("设为精品失败!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 取消设为精品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Not_zhiding_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                string str = string.Format("UPDATE releaseinfo set top = 0  WHERE id='{0}'", id);
+                int tt = sql.setUpdate(str);
+                if (tt != -1)
+                {
+                    MessageBox.Show("取消设为精品成功!");
+                }
+                else
+                {
+                    MessageBox.Show("取消设为精品失败!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 设为官方
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_guanfang_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                string str = string.Format("UPDATE releaseinfo set top = 1  WHERE id='{0}'", id);
+                int tt = sql.setUpdate(str);
+                if (tt != -1)
+                {
+                    MessageBox.Show("设为官方成功!");
+                }
+                else
+                {
+                    MessageBox.Show("设为官方失败!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
+        }
+
+        /// <summary>
+        /// 取消设为官方
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_not_guanfang_Click(object sender, EventArgs e)
+        {
+            //判断是否选择
+            if (listView1.SelectedItems.Count != 0)
+            {
+                string id = listView1.SelectedItems[0].SubItems[0].Text;
+                string str = string.Format("UPDATE releaseinfo set top = 0  WHERE id='{0}'", id);
+                int tt = sql.setUpdate(str);
+                if (tt != -1)
+                {
+                    MessageBox.Show("取消设为官方成功!");
+                }
+                else
+                {
+                    MessageBox.Show("取消设为官方失败!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择你要操作的数据");
+            }
         }
 
     }

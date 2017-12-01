@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -126,6 +127,37 @@ namespace ProjectReleaseSys
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.updateFtpImg();
+        }
+
+
+        UserSql sql = new UserSql();
+
+        /// <summary>
+        /// 将系统生成的用户保存为虚拟用户
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            //实例化
+            User u = new User();
+            //设置参数
+            u.Address = "0";
+            u.AvatarUrl = PublicField.adminImg;
+            u.Id = txt_adminId.Text;
+            u.Realname = txt_adminName.Text;
+            u.Cdate = DateTime.Now;
+            u.Mdate = u.Cdate;
+
+            //调用
+           int tt= sql.setInsert(u);
+           if (tt != -1)
+           {
+               MessageBox.Show("保存成功!");
+           }
+           else {
+               MessageBox.Show("保存失败!");
+           }
         }
     }
 }

@@ -52,7 +52,7 @@
 	<summary>
 		<codepage>1252</codepage>
 		<title>Installation Database</title>
-		<subject>rmbSys2.4.5.0</subject>
+		<subject>rmbSys2.4.6.0</subject>
 		<author>##ID_STRING2##</author>
 		<keywords>Installer,MSI,Database</keywords>
 		<comments>Contact:  Your local administrator</comments>
@@ -340,14 +340,14 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>Component</td><td>{0DF428E9-EF9B-449C-B8CA-E9F4E66E95A3}</td><td>INSTALLDIR</td><td>2</td><td/><td>File</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component1</td><td>{DC00D9FD-BB64-445D-BACE-7AC48183A59D}</td><td>INSTALLDIR</td><td>2</td><td/><td>File1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component2</td><td>{57E4CEA8-D00A-4012-84D4-A8A768ADE710}</td><td>INSTALLDIR</td><td>2</td><td/><td>File2</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component3</td><td>{CAAB2DD6-A673-45C6-9501-4C3950D6524B}</td><td>INSTALLDIR</td><td>2</td><td/><td>File3</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component4</td><td>{5276ECF8-1838-4680-BAF1-19D5EB7D3639}</td><td>SORUCE</td><td>2</td><td/><td>File4</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component5</td><td>{40AD9188-ADE9-48B8-8512-729E3994867D}</td><td>SORUCE</td><td>2</td><td/><td>File5</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component6</td><td>{4A0642A7-8E53-405D-9272-0CFD909CCC17}</td><td>SORUCE</td><td>2</td><td/><td>File6</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Component7</td><td>{512EE7BB-7327-4184-8370-BBC1BBE7928D}</td><td>SORUCE</td><td>2</td><td/><td>File7</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component</td><td>{A3D931DB-2A0C-41DB-8E73-FEF8CD045C87}</td><td>INSTALLDIR</td><td>2</td><td/><td>File</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component1</td><td>{C8E6FBE0-6C5C-469A-BD45-CB1EE36D8606}</td><td>INSTALLDIR</td><td>2</td><td/><td>File1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component2</td><td>{1DEFE695-39FA-4EC3-9D90-FB5F941A7BEF}</td><td>INSTALLDIR</td><td>2</td><td/><td>File2</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component3</td><td>{FAB5AE3F-EBD7-42D6-BE6A-2C170533B8AA}</td><td>INSTALLDIR</td><td>2</td><td/><td>File3</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component4</td><td>{7952AE7F-EBF3-4416-A92F-47F103A5207D}</td><td>SORUCE</td><td>2</td><td/><td>File4</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component5</td><td>{7A4A351A-67AF-4C25-B7BE-1FAEBF46BB0B}</td><td>SORUCE</td><td>2</td><td/><td>File5</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component6</td><td>{605F089C-C632-4720-ADFB-BCAEE19CDD01}</td><td>SORUCE</td><td>2</td><td/><td>File6</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Component7</td><td>{CAEF85AA-2D19-4078-A930-F96C4325AF48}</td><td>SORUCE</td><td>2</td><td/><td>File7</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{FB4BBA9F-FBCB-4486-A7F5-36B5EC96A018}</td><td>SORUCE</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{99C5FB80-F79B-4DAC-BDCF-941B013F33C0}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{31116468-25F9-4850-9488-43F106A0A1EF}</td><td>AdminToolsFolder</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -1169,7 +1169,7 @@
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>RMBSYS2.4.5.0</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>RMBSYS2.4.6.0</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
@@ -1193,6 +1193,7 @@
 		<row><td>RMBSYS2.3.0</td><td>DIRECTORY</td><td>RMBSYS~1|rmbSys2.3.0</td><td/><td>0</td><td/></row>
 		<row><td>RMBSYS2.4.0</td><td>DIRECTORY</td><td>RMBSYS~1|rmbSys2.4.0</td><td/><td>0</td><td/></row>
 		<row><td>RMBSYS2.4.5.0</td><td>DIRECTORY</td><td>RMBSYS~1|rmbSys2.4.5.0</td><td/><td>0</td><td/></row>
+		<row><td>RMBSYS2.4.6.0</td><td>DIRECTORY</td><td>RMBSYS~1|rmbSys2.4.6.0</td><td/><td>0</td><td/></row>
 		<row><td>RecentFolder</td><td>TARGETDIR</td><td>.:Recent</td><td/><td>0</td><td/></row>
 		<row><td>SORUCE</td><td>DATABASEDIR</td><td>soruce</td><td/><td>0</td><td/></row>
 		<row><td>SendToFolder</td><td>TARGETDIR</td><td>.:SendTo</td><td/><td>3</td><td/></row>
@@ -1217,6 +1218,7 @@
 		<row><td>rmbsys_1.0_rmbsys2.3.0</td><td>directory1</td><td>RMBSYS~1.0|rmbSys2.3.0</td><td/><td>1</td><td/></row>
 		<row><td>rmbsys_1.0_rmbsys2.4.0</td><td>directory1</td><td>RMBSYS~1.0|rmbSys2.4.0</td><td/><td>1</td><td/></row>
 		<row><td>rmbsys_1.0_rmbsys2.4.5.0</td><td>directory1</td><td>RMBSYS~1.0|rmbSys2.4.5.0</td><td/><td>1</td><td/></row>
+		<row><td>rmbsys_1.0_rmbsys2.4.6.0</td><td>directory1</td><td>RMBSYS~1.0|rmbSys2.4.6.0</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -2086,14 +2088,14 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>Component</td><td/><td/><td>_750FE611_72A9_45AE_9559_B351007A86DB_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component1</td><td/><td/><td>_8C80674B_A07B_499E_8B2B_608EFB291D81_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component2</td><td/><td/><td>_E8C5E3A7_520E_4E88_88A6_79C6EB578B92_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component3</td><td/><td/><td>_48C305F3_6E30_484C_9C2D_8B988F0B35FD_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component4</td><td/><td/><td>_92A8747E_C824_4FF9_9717_0C25DDEB4504_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component5</td><td/><td/><td>_C47C2F55_B931_4707_9C3F_43A7CC282EE2_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component6</td><td/><td/><td>_2E134E61_B638_44A5_9745_C248F98CF38B_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Component7</td><td/><td/><td>_36C4FB44_74FE_4BDB_9FD3_472FBCDAB1A5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component</td><td/><td/><td>_A5F38DE4_9892_4BFF_ADE1_DBE4941A7CA7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component1</td><td/><td/><td>_F042341D_54DE_4F5B_A624_C37824BAA824_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component2</td><td/><td/><td>_62827B81_087C_4B37_97FA_CC27FB9FE354_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component3</td><td/><td/><td>_7F9ACBE6_D1FE_49C0_A850_117F40325D11_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component4</td><td/><td/><td>_6FD67DB4_AE0B_4900_B59C_54E4A77CE093_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component5</td><td/><td/><td>_7D641A82_4973_4F01_821E_C526051446C5_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component6</td><td/><td/><td>_6339DB52_AA8A_43AD_868D_7920C9E0D9D6_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Component7</td><td/><td/><td>_0269C938_C440_4D59_9A57_77C956AAF93E_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_73076414_D4BD_4550_8532_0D68A714BFCF_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_EE04E7BA_E99C_44E0_B5EA_A6C594064C47_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_21D654A0_5246_4208_BD91_1B4E6B2AE263_FILTER</td><td/><td/><td/><td/></row>
@@ -3509,6 +3511,8 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME10</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>-2052770126</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME11</td><td>1033</td><td/><td>0</td><td/><td>-1918529454</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME11</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>-1918521262</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME12</td><td>1033</td><td/><td>0</td><td/><td>237322416</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME12</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>237330608</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>-324723598</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td/><td>0</td><td/><td>1428500495</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>1428510735</td></row>
@@ -3821,6 +3825,8 @@
 		<row><td>ID_STRING12</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>-2052766030</td></row>
 		<row><td>ID_STRING13</td><td>1033</td><td>搭伙发布系统</td><td>0</td><td/><td>-1918521262</td></row>
 		<row><td>ID_STRING13</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>-1918521262</td></row>
+		<row><td>ID_STRING14</td><td>1033</td><td>搭伙发布系统</td><td>0</td><td/><td>237332656</td></row>
+		<row><td>ID_STRING14</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>237332656</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>公司名称</td><td>0</td><td/><td>-324701070</td></row>
 		<row><td>ID_STRING2</td><td>2052</td><td>贵州合丰力科技有限公司</td><td>0</td><td/><td>1562750322</td></row>
 		<row><td>ID_STRING3</td><td>2052</td><td>搭伙发布系统</td><td>0</td><td/><td>-324723598</td></row>
@@ -3960,9 +3966,11 @@
 		<row><td>_Built1_BB1E74D138264DD7BA4474BE0DC794C3.exe</td><td/><td>D:\2345下载\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built1_C48A42B811234BBCA0B458EE52DACD8A.exe</td><td/><td>D:\2345下载\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built1_DCFDC569D8B64278B6F358BB6FFB81C7.exe</td><td/><td>D:\2345下载\favicon-20170929063032251.ico</td><td>0</td></row>
+		<row><td>_Built1_E6A5E1D332824984878706C8AF70B58F.exe</td><td/><td>D:\2345下载\Img\ico\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built1_EF8CD8E236344DAE82603BC3298557D7.exe</td><td/><td>D:\2345下载\Img\ico\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built_38E2D8884539496B9C2232DDF4A657A1.exe</td><td/><td>D:\2345下载\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built_3C57FE68C6694C3AA98E85349AAC82BC.exe</td><td/><td>D:\2345下载\favicon-20170929063032251.ico</td><td>0</td></row>
+		<row><td>_Built_51B9FDE50542487D85C81D57B2FDABCD.exe</td><td/><td>D:\2345下载\Img\ico\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built_52DB23D9490742ABAABE6994BA762AA9.exe</td><td/><td>D:\2345下载\Img\ico\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built_621B237FF1294B429BE081AFC5021327.exe</td><td/><td>D:\2345下载\Img\ico\favicon-20170929063032251.ico</td><td>0</td></row>
 		<row><td>_Built_925311E22F9F4307A4FE4F446A784ED9.exe</td><td/><td>D:\2345下载\Img\ico\favicon-20170929063032251.ico</td><td>0</td></row>
@@ -4477,7 +4485,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{BAC5E3A1-731C-417F-B05C-4C8E8C5678F2}</td><td/></row>
-		<row><td>ProductName</td><td>rmbSys2.4.5.0</td><td/></row>
+		<row><td>ProductName</td><td>rmbSys2.4.6.0</td><td/></row>
 		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
@@ -4554,9 +4562,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>FileKey1</td><td>Component</td><td/><td>rmbsys_1.0_rmbsys2.4.5.0</td><td>2</td></row>
+		<row><td>FileKey1</td><td>Component</td><td/><td>rmbsys_1.0_rmbsys2.4.6.0</td><td>2</td></row>
 		<row><td>UNINST_Uninstall_rmbSys</td><td>IS_ININSTALL_SHORTCUT</td><td/><td>rmbsys</td><td>2</td></row>
-		<row><td>_Built</td><td>Component</td><td/><td>rmbsys_1.0_rmbsys2.4.5.0</td><td>2</td></row>
+		<row><td>_Built</td><td>Component</td><td/><td>rmbsys_1.0_rmbsys2.4.6.0</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4644,8 +4652,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="I4">ISAttributes</col>
 		<row><td>UNINST_Uninstall_rmbSys</td><td>rmbsys</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {BAC5E3A1-731C-417F-B05C-4C8E8C5678F2}</td><td/><td/><td>UNINST_Uninstall_r_3C1FD0BA60C947F3A85984A627D7F726.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>UNINST_Uninstall_rmbSys1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME1##</td><td>IS_ININSTALL_SHORTCUT</td><td>[SystemFolder]msiexec.exe</td><td>/x {BAC5E3A1-731C-417F-B05C-4C8E8C5678F2}</td><td/><td/><td>UNINST_Uninstall_r_5BC41D2935A3430AB60B153C1812FC79.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built</td><td>rmbsys_1.0_rmbsys2.4.5.0</td><td>##IDS_SHORTCUT_DISPLAY_NAME11##</td><td>Component</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_925311E22F9F4307A4FE4F446A784ED9.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME11##</td><td>Component</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built1_A440EA80F85C4E468AAA73FEA7F33741.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>rmbsys_1.0_rmbsys2.4.6.0</td><td>##IDS_SHORTCUT_DISPLAY_NAME12##</td><td>Component</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_51B9FDE50542487D85C81D57B2FDABCD.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME12##</td><td>Component</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built1_E6A5E1D332824984878706C8AF70B58F.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
