@@ -408,7 +408,7 @@ namespace ProjectReleaseSys
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
 
                 //判断状态
-                if (listView1.SelectedItems[0].SubItems[2].Text!="审核中"){
+                if (listView1.SelectedItems[0].SubItems[3].Text!="审核中"){
                     MessageBox.Show("该状态不属于审核范围!");
                     return;
                 }
@@ -437,7 +437,7 @@ namespace ProjectReleaseSys
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
 
                 //判断状态
-                if (listView1.SelectedItems[0].SubItems[2].Text != "审核中")
+                if (listView1.SelectedItems[0].SubItems[3].Text != "审核中")
                 {
                     MessageBox.Show("该状态不属于审核范围!");
                     return;
@@ -466,7 +466,7 @@ namespace ProjectReleaseSys
             {
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
                 //判断状态
-                if (listView1.SelectedItems[0].SubItems[2].Text != "显示中")
+                if (listView1.SelectedItems[0].SubItems[3].Text != "显示中")
                 {
                     MessageBox.Show("该状态不允许下架!");
                     return;
@@ -484,7 +484,7 @@ namespace ProjectReleaseSys
         }
 
         /// <summary>
-        /// 下架
+        /// 上架
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -495,7 +495,7 @@ namespace ProjectReleaseSys
             {
                 string id = listView1.SelectedItems[0].SubItems[0].Text;
                 //判断状态
-                if (listView1.SelectedItems[0].SubItems[2].Text != "已下架")
+                if (listView1.SelectedItems[0].SubItems[3].Text != "已下架")
                 {
                     MessageBox.Show("该状态不允许上架!");
                     return;
@@ -783,6 +783,12 @@ namespace ProjectReleaseSys
             {
                 MessageBox.Show("请选择你要操作的数据");
             }
+        }
+
+        //添加加盟
+        private void 加盟ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
