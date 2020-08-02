@@ -7,3 +7,8 @@ G:\rbmSys\ProjectReleaseSys\Model\bin\Debug\Model.dll
 G:\rbmSys\ProjectReleaseSys\Model\bin\Debug\Model.pdb
 G:\rbmSys\ProjectReleaseSys\Model\obj\Debug\Model.dll
 G:\rbmSys\ProjectReleaseSys\Model\obj\Debug\Model.pdb
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\Model\bin\Debug\Model.dll
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\Model\bin\Debug\Model.pdb
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\Model\obj\Debug\Model.dll
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\Model\obj\Debug\Model.pdb

@@ -16,3 +16,12 @@ G:\rbmSys\ProjectReleaseSys\BLL\bin\Debug\Model.pdb
 G:\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 G:\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.dll
 G:\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.pdb
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\bin\Debug\BLL.dll
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\bin\Debug\BLL.pdb
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\bin\Debug\ADL.dll
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\bin\Debug\Model.dll
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\bin\Debug\ADL.pdb
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\bin\Debug\Model.pdb
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.dll
+C:\AworkingSpace\git\rbmSys\ProjectReleaseSys\BLL\obj\Debug\BLL.pdb
